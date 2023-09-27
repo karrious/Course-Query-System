@@ -29,7 +29,6 @@ export default class InsightFacade implements IInsightFacade {
 			return Promise.reject(new InsightError('Dataset already exists'));
 		}
 
-
 		return Promise.reject("Not implemented.");
 	}
 
