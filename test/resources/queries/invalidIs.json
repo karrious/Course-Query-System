@@ -1,0 +1,21 @@
+{
+	"title": "invalid is",
+	"input": {
+		"WHERE": {
+			"IS": [
+				{
+					"sections_instructor": 123
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_pass",
+				"sections_instructor"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

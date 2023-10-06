@@ -1,0 +1,33 @@
+{
+	"title": "valid AND3",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"GT": {
+						"sections_avg": 97
+					}
+				},
+				{
+					"IS": {
+						"sections_instructor": "*s"
+					}
+				},
+				{
+					"LT": {
+						"sections_avg": 96
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_pass",
+				"sections_instructor"
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": []
+}

@@ -1,0 +1,3678 @@
+{
+	"title": "valid Asterisks2",
+	"input": {
+		"WHERE": {
+			"OR": [
+				{
+					"IS": {
+						"sections_title": "*sc"
+					}
+				},
+				{
+					"IS": {
+						"sections_uuid": "*888*"
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_instructor",
+				"sections_uuid",
+				"sections_title"
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "adhe",
+			"sections_instructor": "crisfield, erin",
+			"sections_uuid": "88895",
+			"sections_title": "teach adult"
+		},
+		{
+			"sections_dept": "adhe",
+			"sections_instructor": "",
+			"sections_uuid": "88896",
+			"sections_title": "teach adult"
+		},
+		{
+			"sections_dept": "adhe",
+			"sections_instructor": "smulders, dave",
+			"sections_uuid": "88897",
+			"sections_title": "dev wkshp/sem"
+		},
+		{
+			"sections_dept": "adhe",
+			"sections_instructor": "",
+			"sections_uuid": "88898",
+			"sections_title": "dev wkshp/sem"
+		},
+		{
+			"sections_dept": "adhe",
+			"sections_instructor": "bishundayal, deonarine",
+			"sections_uuid": "88899",
+			"sections_title": "com adult educ"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "vogl, a wayne",
+			"sections_uuid": "1847",
+			"sections_title": "fnd bdy dsgn:bsc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "",
+			"sections_uuid": "1848",
+			"sections_title": "fnd bdy dsgn:bsc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "krebs, claudia",
+			"sections_uuid": "12692",
+			"sections_title": "fnd bdy dsgn:bsc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "",
+			"sections_uuid": "12693",
+			"sections_title": "fnd bdy dsgn:bsc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "vogl, a wayne",
+			"sections_uuid": "15156",
+			"sections_title": "fnd bdy dsgn:bsc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "",
+			"sections_uuid": "15157",
+			"sections_title": "fnd bdy dsgn:bsc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "ford, donna",
+			"sections_uuid": "18518",
+			"sections_title": "fnc hmn ant musc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "",
+			"sections_uuid": "18519",
+			"sections_title": "fnc hmn ant musc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "krebs, claudia",
+			"sections_uuid": "90351",
+			"sections_title": "fnc hmn ant musc"
+		},
+		{
+			"sections_dept": "anat",
+			"sections_instructor": "",
+			"sections_uuid": "90352",
+			"sections_title": "fnc hmn ant musc"
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_instructor": "",
+			"sections_uuid": "97888",
+			"sections_title": "technical commun"
+		},
+		{
+			"sections_dept": "arth",
+			"sections_instructor": "smith, tai lin",
+			"sections_uuid": "32888",
+			"sections_title": "modernism"
+		},
+		{
+			"sections_dept": "audi",
+			"sections_instructor": "",
+			"sections_uuid": "11888",
+			"sections_title": "cog proc & ald"
+		},
+		{
+			"sections_dept": "bapa",
+			"sections_instructor": "appelbe, trent",
+			"sections_uuid": "88889",
+			"sections_title": "govrnt & busness"
+		},
+		{
+			"sections_dept": "bapa",
+			"sections_instructor": "",
+			"sections_uuid": "88890",
+			"sections_title": "govrnt & busness"
+		},
+		{
+			"sections_dept": "bapa",
+			"sections_instructor": "appelbe, trent",
+			"sections_uuid": "88891",
+			"sections_title": "fnd mgr econ"
+		},
+		{
+			"sections_dept": "bapa",
+			"sections_instructor": "",
+			"sections_uuid": "88892",
+			"sections_title": "fnd mgr econ"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18042",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18043",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18044",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18045",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18046",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18047",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "bole, gregory michael;pollock, carol",
+			"sections_uuid": "18048",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18049",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18050",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18051",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18052",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18053",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18054",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18055",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18056",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18057",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "bole, gregory michael;pollock, carol",
+			"sections_uuid": "18058",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18059",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18060",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18061",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18062",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18063",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18064",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol",
+			"sections_uuid": "18065",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "18066",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19570",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19571",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19572",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19573",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19574",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19575",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19576",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19577",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19578",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19579",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19580",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19581",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19582",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19583",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19584",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19585",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19586",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19587",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19588",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19589",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19590",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19591",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19592",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "19593",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "19594",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "20543",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "20544",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "20545",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34274",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34275",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34276",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34277",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34278",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34279",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34280",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34281",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34282",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34283",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34284",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34285",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34286",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34287",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34288",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34289",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34290",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34291",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34292",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34293",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34294",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34295",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34296",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34297",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "34298",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "nomme, kathy margaret;pollock, carol;sun, chin",
+			"sections_uuid": "42122",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "nomme, kathy margaret;pollock, carol;sun, chin",
+			"sections_uuid": "42123",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "42124",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54015",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54016",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54017",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54018",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54019",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54020",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54021",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54022",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54023",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54024",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54025",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54026",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54027",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54028",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54029",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54030",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54031",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54032",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54033",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54034",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54035",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54036",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54037",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "54038",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "54039",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "kalas, pamela;nomme, kathy margaret;sun, chin",
+			"sections_uuid": "55058",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "couch, brett;germano, bernardita;kalas, pamela;kopp, christopher;moussavi, maryam;nomme, kathy margaret;norman, lynn;sun, chin",
+			"sections_uuid": "55059",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "55060",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "nomme, kathy margaret;pollock, carol;sun, chin",
+			"sections_uuid": "72058",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "nomme, kathy margaret;pollock, carol;sun, chin",
+			"sections_uuid": "72059",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "72060",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88931",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88932",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88933",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88934",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88935",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88936",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "bole, gregory michael;pollock, carol;sun, chin",
+			"sections_uuid": "88937",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88938",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88939",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88940",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88941",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88942",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88943",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88944",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88945",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88946",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88947",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88948",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88949",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88950",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88951",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88952",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88953",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "pollock, carol;sun, chin",
+			"sections_uuid": "88954",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "88955",
+			"sections_title": "lab inv life sc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "cooke, james;lacombe, agnes",
+			"sections_uuid": "4085",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "4086",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "cooke, james",
+			"sections_uuid": "42221",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "cooke, james",
+			"sections_uuid": "42222",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "42223",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "altshuler, douglas",
+			"sections_uuid": "55156",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "lacombe, agnes",
+			"sections_uuid": "55157",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "biol",
+			"sections_instructor": "",
+			"sections_uuid": "55158",
+			"sections_title": "phys sns nrv msc"
+		},
+		{
+			"sections_dept": "bota",
+			"sections_instructor": "bradfield, gary;keeling, naomi",
+			"sections_uuid": "18887",
+			"sections_title": "sem in botany"
+		},
+		{
+			"sections_dept": "bota",
+			"sections_instructor": "",
+			"sections_uuid": "18888",
+			"sections_title": "sem in botany"
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "",
+			"sections_uuid": "16888",
+			"sections_title": "com prop anal"
+		},
+		{
+			"sections_dept": "chbe",
+			"sections_instructor": "",
+			"sections_uuid": "7888",
+			"sections_title": "prcs&env eng lab"
+		},
+		{
+			"sections_dept": "chbe",
+			"sections_instructor": "haynes, charles",
+			"sections_uuid": "76888",
+			"sections_title": "bioproces eng ii"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "17903",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "17904",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "lermer, leonard",
+			"sections_uuid": "26808",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "26809",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "31222",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "31223",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;stewart, jaclyn",
+			"sections_uuid": "31224",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "perrin, david;stewart, jaclyn",
+			"sections_uuid": "31225",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "loosley, benjamin;stewart, jaclyn",
+			"sections_uuid": "31226",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "31227",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn;withers, stephen",
+			"sections_uuid": "42527",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "ruddick, john n r;stewart, jaclyn",
+			"sections_uuid": "42528",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "rogers, christine;stewart, jaclyn",
+			"sections_uuid": "42529",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "42530",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "42531",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "42532",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "wickenden, jason",
+			"sections_uuid": "43886",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "43887",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn;withers, stephen",
+			"sections_uuid": "54505",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "rogers, christine;stewart, jaclyn",
+			"sections_uuid": "54506",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;stewart, jaclyn",
+			"sections_uuid": "54507",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn;wickenden, jason",
+			"sections_uuid": "54508",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "ruddick, john n r;stewart, jaclyn",
+			"sections_uuid": "54509",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "54510",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "59353",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "59354",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "jetter, reinhard;stewart, jaclyn",
+			"sections_uuid": "64787",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "herring, f geoffrey;stewart, jaclyn",
+			"sections_uuid": "64788",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "64789",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "perrin, david;stewart, jaclyn",
+			"sections_uuid": "64790",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "ruddick, john n r;stewart, jaclyn",
+			"sections_uuid": "64791",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "64792",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "68043",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "68044",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn;tanner, martin",
+			"sections_uuid": "70099",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "70100",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "70101",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;stewart, jaclyn",
+			"sections_uuid": "70102",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "rogers, christine;stewart, jaclyn",
+			"sections_uuid": "70103",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "70104",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn;withers, stephen",
+			"sections_uuid": "82126",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "rogers, christine;stewart, jaclyn",
+			"sections_uuid": "82127",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;stewart, jaclyn",
+			"sections_uuid": "82128",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "stewart, jaclyn",
+			"sections_uuid": "82129",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "ruddick, john n r;stewart, jaclyn",
+			"sections_uuid": "82130",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "82131",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "lermer, leonard",
+			"sections_uuid": "86506",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "86507",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;tanner, martin",
+			"sections_uuid": "89249",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory",
+			"sections_uuid": "89250",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory",
+			"sections_uuid": "89251",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;perrin, david",
+			"sections_uuid": "89252",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "dake, gregory;perrin, david",
+			"sections_uuid": "89253",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "89254",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "wickenden, jason",
+			"sections_uuid": "98192",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "98193",
+			"sections_title": "org chem biol sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "zendrowski, dana",
+			"sections_uuid": "43888",
+			"sections_title": "org chem lab"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "31270",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "31271",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "42571",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "42572",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "54554",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "54555",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "64831",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "64832",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "70146",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "70147",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "82177",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "82178",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "sherman, john",
+			"sections_uuid": "89299",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "",
+			"sections_uuid": "89300",
+			"sections_title": "adv org life sc"
+		},
+		{
+			"sections_dept": "chem",
+			"sections_instructor": "blades, michael;turner, robin",
+			"sections_uuid": "64888",
+			"sections_title": "bioanalyt chem"
+		},
+		{
+			"sections_dept": "civl",
+			"sections_instructor": "",
+			"sections_uuid": "47888",
+			"sections_title": "soil mechanic ii"
+		},
+		{
+			"sections_dept": "civl",
+			"sections_instructor": "",
+			"sections_uuid": "84888",
+			"sections_title": "dynam struct 2"
+		},
+		{
+			"sections_dept": "civl",
+			"sections_instructor": "wijewickreme, dharmapriya",
+			"sections_uuid": "2888",
+			"sections_title": "soil dynmc desgn"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "chamberlain, sandra",
+			"sections_uuid": "38880",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "dorfmann, william",
+			"sections_uuid": "38881",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "dorfmann, william",
+			"sections_uuid": "38882",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "dorfmann, william",
+			"sections_uuid": "38883",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "kroeker, jeff",
+			"sections_uuid": "38884",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "kroeker, jeff",
+			"sections_uuid": "38885",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "",
+			"sections_uuid": "38886",
+			"sections_title": "cost accting"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "chung, tran khue",
+			"sections_uuid": "38887",
+			"sections_title": "income tax"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "chung, tran khue",
+			"sections_uuid": "38888",
+			"sections_title": "income tax"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "chung, tran khue",
+			"sections_uuid": "38889",
+			"sections_title": "income tax"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "duzy, barbara",
+			"sections_uuid": "888",
+			"sections_title": "business writing"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "spencer, barbara",
+			"sections_uuid": "57888",
+			"sections_title": "govt & business"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "granot, frieda",
+			"sections_uuid": "83888",
+			"sections_title": "negotiation"
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "parra perez, alvaro",
+			"sections_uuid": "81888",
+			"sections_title": "strategic mangmt"
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "",
+			"sections_uuid": "49888",
+			"sections_title": "num approx/discr"
+		},
+		{
+			"sections_dept": "dhyg",
+			"sections_instructor": "shariati, batoul",
+			"sections_uuid": "4888",
+			"sections_title": "oral epidemiolgy"
+		},
+		{
+			"sections_dept": "eced",
+			"sections_instructor": "",
+			"sections_uuid": "31888",
+			"sections_title": "kinder curriclm"
+		},
+		{
+			"sections_dept": "econ",
+			"sections_instructor": "gateman, robert",
+			"sections_uuid": "21888",
+			"sections_title": "prncpls micrecon"
+		},
+		{
+			"sections_dept": "econ",
+			"sections_instructor": "gateman, robert",
+			"sections_uuid": "90888",
+			"sections_title": "princpl macrecon"
+		},
+		{
+			"sections_dept": "econ",
+			"sections_instructor": "",
+			"sections_uuid": "69888",
+			"sections_title": "process econ dev"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "milner-bolotin, marina",
+			"sections_uuid": "16727",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "",
+			"sections_uuid": "16728",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "khan, samia",
+			"sections_uuid": "20336",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "",
+			"sections_uuid": "20337",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "milner-bolotin, marina",
+			"sections_uuid": "62044",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "",
+			"sections_uuid": "62045",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "milner-bolotin, marina",
+			"sections_uuid": "87682",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "edcp",
+			"sections_instructor": "",
+			"sections_uuid": "87683",
+			"sections_title": "res tch & lrn sc"
+		},
+		{
+			"sections_dept": "eece",
+			"sections_instructor": "",
+			"sections_uuid": "74888",
+			"sections_title": "multimedia sys"
+		},
+		{
+			"sections_dept": "eece",
+			"sections_instructor": "bhargava, vijay",
+			"sections_uuid": "95888",
+			"sections_title": "dtc&est sgnl nse"
+		},
+		{
+			"sections_dept": "elec",
+			"sections_instructor": "",
+			"sections_uuid": "30888",
+			"sections_title": "computer comm"
+		},
+		{
+			"sections_dept": "engl",
+			"sections_instructor": "anger, suzy",
+			"sections_uuid": "42888",
+			"sections_title": "lit brit 18c+"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "longridge, louise;ver, leah may",
+			"sections_uuid": "68880",
+			"sections_title": "catastroph earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "longridge, louise;ver, leah may",
+			"sections_uuid": "68881",
+			"sections_title": "catastroph earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "longridge, louise;ver, leah may",
+			"sections_uuid": "68882",
+			"sections_title": "catastroph earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "",
+			"sections_uuid": "68883",
+			"sections_title": "catastroph earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "francois, roger;mortensen, james;sutherland, stuart",
+			"sections_uuid": "68884",
+			"sections_title": "mesozoic earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "longridge, louise",
+			"sections_uuid": "68885",
+			"sections_title": "mesozoic earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "longridge, louise",
+			"sections_uuid": "68886",
+			"sections_title": "mesozoic earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "",
+			"sections_uuid": "68887",
+			"sections_title": "mesozoic earth"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "dzikowski, tashia;turner, david",
+			"sections_uuid": "68888",
+			"sections_title": "gold & gems"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "dzikowski, tashia;turner, david",
+			"sections_uuid": "68889",
+			"sections_title": "gold & gems"
+		},
+		{
+			"sections_dept": "eosc",
+			"sections_instructor": "",
+			"sections_uuid": "82888",
+			"sections_title": "field geology"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_instructor": "champion, kathleen",
+			"sections_uuid": "86888",
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_instructor": "",
+			"sections_uuid": "35888",
+			"sections_title": "cog lang proc ed"
+		},
+		{
+			"sections_dept": "etec",
+			"sections_instructor": "miller, jeffrey",
+			"sections_uuid": "45888",
+			"sections_title": "des tech"
+		},
+		{
+			"sections_dept": "fmst",
+			"sections_instructor": "weatherby, maria",
+			"sections_uuid": "41888",
+			"sections_title": "fmly human dvlpm"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "6608",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "6609",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "11729",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "11730",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "13995",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "13996",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "23592",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "23593",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "51613",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "51614",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "65005",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "65006",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "68364",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "68365",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "68760",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "68761",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "75656",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fnh",
+			"sections_instructor": "",
+			"sections_uuid": "75657",
+			"sections_title": "food proc sc"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "o'brien, juliet;tba",
+			"sections_uuid": "58880",
+			"sections_title": "beginner fren ii"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "o'brien, juliet",
+			"sections_uuid": "58881",
+			"sections_title": "beginner fren ii"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "o'brien, juliet;onate, susa",
+			"sections_uuid": "58882",
+			"sections_title": "beginner fren ii"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "o'brien, juliet",
+			"sections_uuid": "58883",
+			"sections_title": "beginner fren ii"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "",
+			"sections_uuid": "58884",
+			"sections_title": "beginner fren ii"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "",
+			"sections_uuid": "52888",
+			"sections_title": "intermed fren 1"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "rouget, christine;simpson, anne;tba",
+			"sections_uuid": "58885",
+			"sections_title": "intermed fren 1"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "jean, marie-gerald;rouget, christine;simpson, anne",
+			"sections_uuid": "58886",
+			"sections_title": "intermed fren 1"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "simpson, anne",
+			"sections_uuid": "58887",
+			"sections_title": "intermed fren 1"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "moniuk. deborah;rouget, christine;simpson, anne",
+			"sections_uuid": "58888",
+			"sections_title": "intermed fren 1"
+		},
+		{
+			"sections_dept": "fren",
+			"sections_instructor": "moniuk. deborah;rouget, christine;simpson, anne",
+			"sections_uuid": "58889",
+			"sections_title": "intermed fren 1"
+		},
+		{
+			"sections_dept": "frst",
+			"sections_instructor": "",
+			"sections_uuid": "34888",
+			"sections_title": "forest genetics"
+		},
+		{
+			"sections_dept": "hist",
+			"sections_instructor": "bronfman, alejandra",
+			"sections_uuid": "48888",
+			"sections_title": "ma research sem"
+		},
+		{
+			"sections_dept": "hist",
+			"sections_instructor": "",
+			"sections_uuid": "48889",
+			"sections_title": "ma research sem"
+		},
+		{
+			"sections_dept": "japn",
+			"sections_instructor": "fan, belen",
+			"sections_uuid": "66888",
+			"sections_title": "begin japn i"
+		},
+		{
+			"sections_dept": "japn",
+			"sections_instructor": "",
+			"sections_uuid": "59888",
+			"sections_title": "begin japn ii"
+		},
+		{
+			"sections_dept": "japn",
+			"sections_instructor": "",
+			"sections_uuid": "26888",
+			"sections_title": "intns int japn 1"
+		},
+		{
+			"sections_dept": "japn",
+			"sections_instructor": "",
+			"sections_uuid": "60888",
+			"sections_title": "adv conv&comp"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "2552",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "2553",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "2988",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "2989",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "2990",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "20936",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "20937",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "56881",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "56882",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "59396",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "59397",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "59398",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "72568",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "72569",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "72570",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "86691",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "86692",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "86693",
+			"sections_title": "leisure sport sc"
+		},
+		{
+			"sections_dept": "kin",
+			"sections_instructor": "",
+			"sections_uuid": "56888",
+			"sections_title": "fndtns coaching"
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "loehrlein, aaron",
+			"sections_uuid": "15888",
+			"sections_title": "resdesc knoworg"
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "",
+			"sections_uuid": "25888",
+			"sections_title": "contmp child lit"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "bauerschmidt, roland",
+			"sections_uuid": "3737",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "macdonald, mark",
+			"sections_uuid": "3738",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "ghioca, dragos",
+			"sections_uuid": "3739",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "bennett, michael",
+			"sections_uuid": "3740",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "fazly, mostafa",
+			"sections_uuid": "3741",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "liu, keqin",
+			"sections_uuid": "3742",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "holtzman-gazit, michal",
+			"sections_uuid": "3743",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "pollack, paul",
+			"sections_uuid": "3744",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "liu, keqin",
+			"sections_uuid": "3745",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "3746",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "3747",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "de zeeuw, frank",
+			"sections_uuid": "5109",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "morin, matthew",
+			"sections_uuid": "5110",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "nagata, k wayne",
+			"sections_uuid": "5111",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "gustafson, stephen james",
+			"sections_uuid": "5112",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "yilmaz, ozgur",
+			"sections_uuid": "5113",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "bennoun, steve",
+			"sections_uuid": "5114",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "chipeniuk, karsten",
+			"sections_uuid": "5115",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "magyar, akos",
+			"sections_uuid": "5116",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "masson, robert",
+			"sections_uuid": "5117",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "5118",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "steinberger, john",
+			"sections_uuid": "13665",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "he, weiyong",
+			"sections_uuid": "13666",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_uuid": "13667",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "nagata, k wayne",
+			"sections_uuid": "13668",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_uuid": "13669",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "holroyd, alexander",
+			"sections_uuid": "13670",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "cadman, charles",
+			"sections_uuid": "13671",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "aguade, jaume",
+			"sections_uuid": "13672",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "rosales, leo",
+			"sections_uuid": "13673",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "smith, jefferey",
+			"sections_uuid": "13674",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "13675",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "gupta, rajiv",
+			"sections_uuid": "27196",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "silberman, lior",
+			"sections_uuid": "27197",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "ghioca, dragos",
+			"sections_uuid": "27198",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "gupta, rajiv",
+			"sections_uuid": "27199",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "wiedemann, emil",
+			"sections_uuid": "27200",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "valesin, daniel",
+			"sections_uuid": "27201",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "oyarzua, ricardo",
+			"sections_uuid": "27202",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "feng, james jingtao",
+			"sections_uuid": "27203",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "27204",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "27205",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29694",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29695",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29696",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29697",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29698",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29699",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29700",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29701",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29702",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29703",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "yeager, elyse",
+			"sections_uuid": "31917",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "kim, young-heon",
+			"sections_uuid": "31918",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "yeager, elyse",
+			"sections_uuid": "31919",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "rechnitzer, andrew",
+			"sections_uuid": "31920",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "taati, siamak",
+			"sections_uuid": "31921",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "walls, patrick",
+			"sections_uuid": "31922",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "leung, fok-shuen",
+			"sections_uuid": "31923",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "31924",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "liu, keqin;maclean, mark thomson;tba",
+			"sections_uuid": "33945",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "liu, keqin",
+			"sections_uuid": "33946",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "ghioca, dragos",
+			"sections_uuid": "33947",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "liu, keqin;maclean, mark thomson;tba",
+			"sections_uuid": "33948",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "cheng, man chuen",
+			"sections_uuid": "33949",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "sadel, christian",
+			"sections_uuid": "33950",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "doerksen, kevin",
+			"sections_uuid": "33951",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "angel, omer",
+			"sections_uuid": "33952",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "33953",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "silberman, lior",
+			"sections_uuid": "46989",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "rechnitzer, andrew",
+			"sections_uuid": "46990",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "huan, tingting",
+			"sections_uuid": "46991",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "ghioca, dragos",
+			"sections_uuid": "46992",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "lages wardil, lucas",
+			"sections_uuid": "46993",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "wang, rongrong",
+			"sections_uuid": "46994",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "46995",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "leung, fok-shuen",
+			"sections_uuid": "46996",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "46997",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "blois, cindy",
+			"sections_uuid": "72886",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "gomez, jose",
+			"sections_uuid": "72887",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "luoto, kurt",
+			"sections_uuid": "72888",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "silberman, lior",
+			"sections_uuid": "72889",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "bennoun, steve",
+			"sections_uuid": "72890",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "moyles, iain",
+			"sections_uuid": "72891",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "magyar, akos",
+			"sections_uuid": "72892",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "nagata, k wayne",
+			"sections_uuid": "72893",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "klaus, michele",
+			"sections_uuid": "72894",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "72895",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "silberman, lior",
+			"sections_uuid": "89952",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "rechnitzer, andrew",
+			"sections_uuid": "89953",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "yeager, elyse",
+			"sections_uuid": "89954",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "ghioca, dragos",
+			"sections_uuid": "89955",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "courtiel, julien",
+			"sections_uuid": "89956",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "koppensteiner, clemens",
+			"sections_uuid": "89957",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "89958",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "leung, fok-shuen",
+			"sections_uuid": "89959",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "89960",
+			"sections_title": "df calc ap ph sc"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "29888",
+			"sections_title": "abstr linear alg"
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "",
+			"sections_uuid": "13888",
+			"sections_title": "appl nonln dy&ch"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "",
+			"sections_uuid": "60384",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "",
+			"sections_uuid": "60385",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "sessional lecturer",
+			"sections_uuid": "63746",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "",
+			"sections_uuid": "63747",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "sessional lecturer",
+			"sections_uuid": "69992",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "",
+			"sections_uuid": "69993",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "sessional lecturer",
+			"sections_uuid": "81377",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "",
+			"sections_uuid": "81378",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "sessional lecturer",
+			"sections_uuid": "97978",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mrne",
+			"sections_instructor": "",
+			"sections_uuid": "97979",
+			"sections_title": "sem&pprs mrne sc"
+		},
+		{
+			"sections_dept": "mtrl",
+			"sections_instructor": "",
+			"sections_uuid": "44888",
+			"sections_title": "met thermodyn ii"
+		},
+		{
+			"sections_dept": "mtrl",
+			"sections_instructor": "",
+			"sections_uuid": "51888",
+			"sections_title": "hydromtl i lab"
+		},
+		{
+			"sections_dept": "mtrl",
+			"sections_instructor": "wang, rizhi",
+			"sections_uuid": "1888",
+			"sections_title": "microstruct anls"
+		},
+		{
+			"sections_dept": "musc",
+			"sections_instructor": "",
+			"sections_uuid": "28880",
+			"sections_title": "early music ens"
+		},
+		{
+			"sections_dept": "musc",
+			"sections_instructor": "wilson, eric",
+			"sections_uuid": "28881",
+			"sections_title": "ubc chamb string"
+		},
+		{
+			"sections_dept": "musc",
+			"sections_instructor": "",
+			"sections_uuid": "28882",
+			"sections_title": "ubc chamb string"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "unruh, william",
+			"sections_uuid": "460",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "461",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "unruh, william",
+			"sections_uuid": "5978",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "5979",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "halpern, mark",
+			"sections_uuid": "33590",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "33591",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "halpern, mark",
+			"sections_uuid": "41238",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "41239",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "unruh, william",
+			"sections_uuid": "50257",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "50258",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "unruh, william",
+			"sections_uuid": "75328",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "75329",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "unruh, william",
+			"sections_uuid": "80618",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "80619",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "unruh, william",
+			"sections_uuid": "98757",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "phys",
+			"sections_instructor": "",
+			"sections_uuid": "98758",
+			"sections_title": "physics of musc"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "baier, gerald",
+			"sections_uuid": "8880",
+			"sections_title": "government can"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "baier, gerald",
+			"sections_uuid": "8881",
+			"sections_title": "government can"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "kopas, paul",
+			"sections_uuid": "8882",
+			"sections_title": "government can"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "craigie, allan",
+			"sections_uuid": "8883",
+			"sections_title": "government can"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "",
+			"sections_uuid": "8884",
+			"sections_title": "government can"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "jacobs, alan michael",
+			"sections_uuid": "8885",
+			"sections_title": "investigat polit"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "bohlken, anjali",
+			"sections_uuid": "8886",
+			"sections_title": "investigat polit"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "",
+			"sections_uuid": "8887",
+			"sections_title": "investigat polit"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "goenaga orrego, agustin",
+			"sections_uuid": "8888",
+			"sections_title": "intr comp poltcs"
+		},
+		{
+			"sections_dept": "poli",
+			"sections_instructor": "peterson, jenny",
+			"sections_uuid": "8889",
+			"sections_title": "intr comp poltcs"
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_instructor": "",
+			"sections_uuid": "80888",
+			"sections_title": "brain & behviour"
+		},
+		{
+			"sections_dept": "relg",
+			"sections_instructor": "",
+			"sections_uuid": "17888",
+			"sections_title": "paul of tarsus"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "harris, leila",
+			"sections_uuid": "7688",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "",
+			"sections_uuid": "7689",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "wittman, hannah",
+			"sections_uuid": "51857",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "",
+			"sections_uuid": "51858",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "wittman, hannah",
+			"sections_uuid": "62568",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "",
+			"sections_uuid": "62569",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "hagerman, shannon marie;satterfield, theresa",
+			"sections_uuid": "94046",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmes",
+			"sections_instructor": "",
+			"sections_uuid": "94047",
+			"sections_title": "qual mthd intdsc"
+		},
+		{
+			"sections_dept": "rmst",
+			"sections_instructor": "testa, carlo",
+			"sections_uuid": "12888",
+			"sections_title": "lit&cult rmnc ii"
+		},
+		{
+			"sections_dept": "scan",
+			"sections_instructor": "winthrop-young, geoffrey",
+			"sections_uuid": "71888",
+			"sections_title": "vikings & myth"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88800",
+			"sections_title": "intr soc welfare"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "kendrick, kristin",
+			"sections_uuid": "88801",
+			"sections_title": "intr soc work"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88802",
+			"sections_title": "intr soc work"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "clark, natalie;jamieson, ally;jones, elizabeth",
+			"sections_uuid": "88803",
+			"sections_title": "sowk practice i"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88804",
+			"sections_title": "sowk practice i"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "charles, grant;jones, elizabeth;mcnicoll, paule",
+			"sections_uuid": "92888",
+			"sections_title": "sowk practice i"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "allison, kelly",
+			"sections_uuid": "88805",
+			"sections_title": "interviewing skl"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "medjuck, melissa",
+			"sections_uuid": "88806",
+			"sections_title": "interviewing skl"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88807",
+			"sections_title": "interviewing skl"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "nickel, wayne",
+			"sections_uuid": "88808",
+			"sections_title": "int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "oliver, carolyn",
+			"sections_uuid": "88809",
+			"sections_title": "int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "yan, miu chung",
+			"sections_uuid": "88810",
+			"sections_title": "int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88811",
+			"sections_title": "int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "marshall, janet vaughan",
+			"sections_uuid": "88812",
+			"sections_title": "intr sowk resrch"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "marshall, janet vaughan",
+			"sections_uuid": "88813",
+			"sections_title": "intr sowk resrch"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88814",
+			"sections_title": "intr sowk resrch"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "bryson, stephanie;riano-alcala, pilar",
+			"sections_uuid": "88815",
+			"sections_title": "soc anl sowk"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88816",
+			"sections_title": "soc anl sowk"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "yan, miu chung",
+			"sections_uuid": "88817",
+			"sections_title": "cult&race sowk"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88818",
+			"sections_title": "cult&race sowk"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "johnston, patricia",
+			"sections_uuid": "88819",
+			"sections_title": "can soci plcy"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88820",
+			"sections_title": "can soci plcy"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "jones, elizabeth",
+			"sections_uuid": "88821",
+			"sections_title": "sowk practice ii"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88822",
+			"sections_title": "sowk practice ii"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "del vecchio, rhea",
+			"sections_uuid": "88823",
+			"sections_title": "adv int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "o'neill, brian",
+			"sections_uuid": "88824",
+			"sections_title": "adv int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "lipov, eleanor",
+			"sections_uuid": "88825",
+			"sections_title": "adv int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "kruk, edward andrew",
+			"sections_uuid": "88826",
+			"sections_title": "adv int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88827",
+			"sections_title": "adv int sem in sw th"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "johnson, shelly",
+			"sections_uuid": "88828",
+			"sections_title": "first nat soc is"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "johnson, shelly",
+			"sections_uuid": "88829",
+			"sections_title": "first nat soc is"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88830",
+			"sections_title": "first nat soc is"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "davis, simon",
+			"sections_uuid": "88835",
+			"sections_title": "com mtl hlth prc"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88836",
+			"sections_title": "com mtl hlth prc"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "casson, barbara;choi, marcia",
+			"sections_uuid": "88837",
+			"sections_title": "health care team"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88838",
+			"sections_title": "health care team"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "stainton, timothy",
+			"sections_uuid": "88839",
+			"sections_title": "dis and justice"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88840",
+			"sections_title": "dis and justice"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "tester, frank",
+			"sections_uuid": "88841",
+			"sections_title": "adv can soc plcy"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88842",
+			"sections_title": "adv can soc plcy"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "allison, kelly;chaparro-pacheco, ricardo;clark, natalie",
+			"sections_uuid": "88843",
+			"sections_title": "sowk practice"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88844",
+			"sections_title": "sowk practice"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "quinn, alyson",
+			"sections_uuid": "88845",
+			"sections_title": "communic skills"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88846",
+			"sections_title": "communic skills"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "norris, william craig",
+			"sections_uuid": "88847",
+			"sections_title": "social analysis"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88848",
+			"sections_title": "social analysis"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "johnson, shelly",
+			"sections_uuid": "88849",
+			"sections_title": "fst ntns soc iss"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88850",
+			"sections_title": "fst ntns soc iss"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "jones, elizabeth",
+			"sections_uuid": "88851",
+			"sections_title": "fndtn msw seminr"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88852",
+			"sections_title": "fndtn msw seminr"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "kruk, edward andrew",
+			"sections_uuid": "88853",
+			"sections_title": "sowk prac addict"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88854",
+			"sections_title": "sowk prac addict"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "kruk, edward andrew",
+			"sections_uuid": "88855",
+			"sections_title": "fmly mdt&cnfl rs"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88856",
+			"sections_title": "fmly mdt&cnfl rs"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "davis, simon",
+			"sections_uuid": "88861",
+			"sections_title": "pr mental health"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88862",
+			"sections_title": "pr mental health"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "o'connor, deborah",
+			"sections_uuid": "88863",
+			"sections_title": "sowk prc fld age"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88864",
+			"sections_title": "sowk prc fld age"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "gauvin, emma",
+			"sections_uuid": "88867",
+			"sections_title": "soc wrk & justce"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "o'connor, deborah",
+			"sections_uuid": "88868",
+			"sections_title": "soc wrk & justce"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "kruk, edward andrew",
+			"sections_uuid": "88869",
+			"sections_title": "soc wrk & justce"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88870",
+			"sections_title": "soc wrk & justce"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "bryson, stephanie;robitaille, teresa",
+			"sections_uuid": "88871",
+			"sections_title": "hlth & soc care"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88872",
+			"sections_title": "hlth & soc care"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "bryson, stephanie",
+			"sections_uuid": "88877",
+			"sections_title": "adv int seminar"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "o'connor, deborah",
+			"sections_uuid": "88878",
+			"sections_title": "adv int seminar"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88879",
+			"sections_title": "adv int seminar"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88880",
+			"sections_title": "directed study"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "clark, natalie",
+			"sections_uuid": "88881",
+			"sections_title": "directed study"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88882",
+			"sections_title": "directed study"
+		},
+		{
+			"sections_dept": "sowk",
+			"sections_instructor": "",
+			"sections_uuid": "88883",
+			"sections_title": "directed study"
+		},
+		{
+			"sections_dept": "span",
+			"sections_instructor": "barreto, jamille",
+			"sections_uuid": "46888",
+			"sections_title": "intermed span i"
+		},
+		{
+			"sections_dept": "span",
+			"sections_instructor": "",
+			"sections_uuid": "23888",
+			"sections_title": "pen lit to 1700"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "584",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "585",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "586",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "5806",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "5807",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "5808",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "guhn, martin",
+			"sections_uuid": "28084",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "28085",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "28086",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "33009",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "33010",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "33011",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "craib, kevin j",
+			"sections_uuid": "47723",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "craib, kevin j",
+			"sections_uuid": "47724",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "47725",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "65073",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "65074",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "65075",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "85883",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "85884",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "85885",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "89870",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "marin, michael",
+			"sections_uuid": "89871",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "89872",
+			"sections_title": "stats health sc"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "85888",
+			"sections_title": "an meth epid res"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "",
+			"sections_uuid": "89888",
+			"sections_title": "dsgn clin trial"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_instructor": "babul, shelina;brussoni, mariana;pike, ian",
+			"sections_uuid": "5888",
+			"sections_title": "inj prvntn"
+		},
+		{
+			"sections_dept": "stat",
+			"sections_instructor": "",
+			"sections_uuid": "98880",
+			"sections_title": "case studies"
+		},
+		{
+			"sections_dept": "stat",
+			"sections_instructor": "bryan, jennifer frazier;cohen freue, gabriela;pavlidis, paul",
+			"sections_uuid": "98885",
+			"sections_title": "stat meth hd bio"
+		},
+		{
+			"sections_dept": "stat",
+			"sections_instructor": "",
+			"sections_uuid": "98886",
+			"sections_title": "stat meth hd bio"
+		},
+		{
+			"sections_dept": "thtr",
+			"sections_instructor": "",
+			"sections_uuid": "50888",
+			"sections_title": "int bfa acting i"
+		}
+	]
+}
