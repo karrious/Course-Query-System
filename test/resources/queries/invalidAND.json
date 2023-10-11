@@ -1,0 +1,17 @@
+{
+	"title": "invalid AND",
+	"input": {
+		"WHERE": {
+			"AND": []
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_pass",
+				"sections_instructor"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

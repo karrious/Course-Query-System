@@ -1,0 +1,34 @@
+{
+	"title": "valid AND",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"GT": {
+						"sections_avg": 97
+					}
+				},
+				{
+					"IS": {
+						"sections_instructor": "*s"
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_pass",
+				"sections_instructor"
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "educ",
+			"sections_pass": 14,
+			"sections_instructor": "morgan, tannis"
+		}
+	]
+}
