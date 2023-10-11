@@ -23,5 +23,42 @@ export class PerformQuery{
 				columnResult[column] = result[column];
 			}
 		})
+		this.insightResult = this.orderQuery(optionsResult, order);
+		return this.insightResult;
+	}
+
+	private logicComparison(logic: any): InsightResult[]{
+		return logicDataset;
+	}
+
+	private mComparison(m: any): InsightResult[]{
+		const mKey: string = Object.keys(m)[0];
+		const
+	}
+
+	private sComparison(s: any): InsightResult[]{
+		const sKey: string = Object.keys(s)[0];
+		const value: string = s[sKey];
+		return this.sDataset.filter((section) => {
+			const sectionValue: string = section[sKey];
+
+			if (value.startsWith('*') && value.endsWith('*')) {
+				return sectionValue.includes(value.substring(1, value.length - 1));
+			} else if (value.startsWith('*')) {
+				return sectionValue.endsWith(value.substring(1));
+			} else if (value.endsWith('*')) {
+				return sectionValue.startsWith(value.substring(0, value.length - 1));
+			} else {
+				return sectionValue === value;
+			}
+		})
+	}
+
+	private negation(negation: any): InsightResult[]{
+		return negationDataset;
+	}
+
+	private orderQuery(orderDataset: InsightResult[], order: any): InsightResult[]{
+		return orderDataset;
 	}
 }
