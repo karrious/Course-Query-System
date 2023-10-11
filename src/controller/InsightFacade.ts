@@ -93,10 +93,12 @@ export default class InsightFacade implements IInsightFacade {
 			// for each to iterate through jszip object
 			zip.forEach((relativePath, file) => {
 				if (relativePath.startsWith("courses/")) {
-					// call await promise.all on array to hold all those promises & push promise onto array
-					// Access the contents of the file and add it to the result array
-					const promiseFile = file.async("string");
-					promises.push(promiseFile);
+					if (!relativePath.endsWith("/")){
+						// call await promise.all on array to hold all those promises & push promise onto array
+						// Access the contents of the file and add it to the result array
+						const promiseFile = file.async("string");
+						promises.push(promiseFile);
+					}
 				} else {
 					throw new InsightError("Invalid content (folder not named courses or empty)");
 				}
@@ -110,6 +112,8 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	private saveContent(id: string, contentUnzipped: string[]){
+		let allSections: Section[] = [];
+
 		for (const str of contentUnzipped){
 			try {
 				// console.log(str);
@@ -129,19 +133,19 @@ export default class InsightFacade implements IInsightFacade {
 					avg: course.Avg,
 					dept: course.Subject
 				}));
-				// console.log(sections);
-				this.datasets.set(id, sections);
-				const serializedSections = JSON.stringify(sections);
-				// console.log(serializedSections);
-				if (!fs.existsSync("./data")) {
-					fs.mkdirSync("./data");
-					// console.log("directory created");
-				}
-				fs.writeFileSync("./data/" + id + ".json", serializedSections, "utf-8");
+				allSections = allSections.concat(sections);
 			} catch (error) {
 				throw new InsightError("Invalid content");
 			}
 		}
+
+		this.datasets.set(id, allSections);
+		const serializedSections = JSON.stringify(allSections);
+		// console.log(serializedSections);
+		if (!fs.existsSync("./data")) {
+			fs.mkdirSync("./data");
+		}
+		fs.writeFileSync("./data/" + id + ".json", serializedSections, "utf-8");
 	}
 
 	public removeDataset(id: string): Promise<string> {
@@ -175,16 +179,14 @@ export default class InsightFacade implements IInsightFacade {
 
 	public async listDatasets(): Promise<InsightDataset[]> {
 		let datasetList: InsightDataset[] = [];
-		let totalRows = 0;
+		// let totalRows = 0;
 
 		for (let [key, value] of this.datasets) {
-			totalRows += value.length;
-			console.log(totalRows);
-			console.log(value.length);
+			// totalRows += value.length;
 			const dataset: InsightDataset = {
 				id: key,
 				kind: InsightDatasetKind.Sections,
-				numRows: totalRows
+				numRows: value.length
 			};
 			datasetList.push(dataset);
 		}

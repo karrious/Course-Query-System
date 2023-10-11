@@ -79,7 +79,7 @@ describe("InsightFacade", function () {
 		});
 
 		it ("should successfully add a dataset", function() {
-			sectionsL = getContentFromArchives("zoo++.zip");
+			sectionsL = getContentFromArchives("pairM.zip");
 			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
 			return expect(result).to.eventually.deep.equal(["ubc"]);
 		});
@@ -178,7 +178,7 @@ describe("InsightFacade", function () {
 		});
 
 		it("Can successfully list a larger added dataset", async function(){
-			sectionsL = getContentFromArchives("pairS.zip");
+			sectionsL = getContentFromArchives("zoo++.zip");
 			await facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
 			const result = facade.listDatasets();
 			return expect(result).to.eventually.deep.equal([{
