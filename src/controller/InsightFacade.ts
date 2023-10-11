@@ -21,13 +21,36 @@ export default class InsightFacade implements IInsightFacade {
 
 	constructor() {
 		this.datasets = new Map();
+
+		// crash handling
+		this.crash();
+	}
+
+	// crash handling
+	private crash() {
+		if (fs.existsSync("./data")) {
+			const disk: string[] = fs.readdirSync("./data");
+
+			// if datasets is missing courses compared to disk
+			if (this.datasets.size < disk.length) {
+				for (const file of disk) {
+					const datasetId = file.replace(".json", "");
+
+					if (!this.datasets.has(datasetId)) {
+						const fileContent = fs.readFileSync("./data/" + datasetId + ".json", "utf-8");
+						const datasetContent = JSON.parse(fileContent);
+						this.datasets.set(datasetId, datasetContent);
+						this.datasets.set(datasetId, datasetContent);
+						// TODO: when crash happens, populate datasets from disk
+
+					}
+				}
+			}
+		}
 	}
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		try {
-			// crash handling
-			this.crash();
-
 			// Make sure id is valid
 			this.validateDatasetId(id);
 
@@ -51,15 +74,6 @@ export default class InsightFacade implements IInsightFacade {
 		} catch (error) {
 			console.log(error);
 			return Promise.reject(error);
-		}
-	}
-
-	// crash handling
-	private crash() {
-		if (fs.existsSync("./data")) {
-			if (this.datasets.size < fs.readdirSync("./data").length) {
-				// TODO: when crash happens, populate datasets from disk
-			}
 		}
 	}
 
@@ -190,18 +204,6 @@ export default class InsightFacade implements IInsightFacade {
 			};
 			datasetList.push(dataset);
 		}
-		// this.datasets.forEach((value, key) => {
-		// 	totalRows += value.length;
-		// 	// console.log(totalRows);
-		// 	// console.log(value.length);
-		// 	const dataset: InsightDataset = {
-		// 		id: key,
-		// 		kind: InsightDatasetKind.Sections,
-		// 		numRows: totalRows
-		// 	};
-		// 	datasetList.push(dataset);
-		// });
-
 		console.log(datasetList);
 		return Promise.resolve(datasetList);
 	}
