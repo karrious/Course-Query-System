@@ -25,6 +25,9 @@ export default class InsightFacade implements IInsightFacade {
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		try {
+			// crash handling
+			this.crash();
+
 			// Make sure id is valid
 			this.validateDatasetId(id);
 
@@ -40,12 +43,23 @@ export default class InsightFacade implements IInsightFacade {
 			// Parse content
 			this.saveContent(id, contentUnzipped);
 
+			// console.log([...this.datasets.values()]);
 			// return id after dataset successfully added
-			return Promise.resolve([id]);
+			let datasetIds: string[] = Array.from(this.datasets.keys());
+			return Promise.resolve(datasetIds);
 
 		} catch (error) {
 			console.log(error);
 			return Promise.reject(error);
+		}
+	}
+
+	// crash handling
+	private crash() {
+		if (fs.existsSync("./data")) {
+			if (this.datasets.size < fs.readdirSync("./data").length) {
+				// TODO: when crash happens, populate datasets from disk
+			}
 		}
 	}
 
@@ -65,7 +79,7 @@ export default class InsightFacade implements IInsightFacade {
 
 	// Check if the dataset with the same id already exists
 	private checkDuplicateId(id: string) {
-		if (fs.existsSync("./data/" + id + ".json")) {
+		if (this.datasets.has(id)) {
 			throw new InsightError("Dataset id already exist");
 		}
 	}
@@ -98,8 +112,10 @@ export default class InsightFacade implements IInsightFacade {
 	private saveContent(id: string, contentUnzipped: string[]){
 		for (const str of contentUnzipped){
 			try {
+				// console.log(str);
+				// console.log("inside try");
 				const jsonData = JSON.parse(str);
-				console.log("inside parse");
+				// console.log("inside parse");
 				// console.log(jsonData);
 				const sections: Section[] = jsonData.result.map((course: any) => ({
 					title: course.Title,
@@ -113,13 +129,13 @@ export default class InsightFacade implements IInsightFacade {
 					avg: course.Avg,
 					dept: course.Subject
 				}));
-
-				console.log("mapped sections");
+				// console.log(sections);
+				this.datasets.set(id, sections);
 				const serializedSections = JSON.stringify(sections);
-				console.log("stringified");
+				// console.log(serializedSections);
 				if (!fs.existsSync("./data")) {
 					fs.mkdirSync("./data");
-					console.log("directory created");
+					// console.log("directory created");
 				}
 				fs.writeFileSync("./data/" + id + ".json", serializedSections, "utf-8");
 			} catch (error) {
@@ -157,8 +173,35 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.reject("Not implemented.");
 	}
 
-	public listDatasets(): Promise<InsightDataset[]> {
-		return Promise.reject("Not implemented.");
+	public async listDatasets(): Promise<InsightDataset[]> {
+		let datasetList: InsightDataset[] = [];
+		let totalRows = 0;
+
+		for (let [key, value] of this.datasets) {
+			totalRows += value.length;
+			console.log(totalRows);
+			console.log(value.length);
+			const dataset: InsightDataset = {
+				id: key,
+				kind: InsightDatasetKind.Sections,
+				numRows: totalRows
+			};
+			datasetList.push(dataset);
+		}
+		// this.datasets.forEach((value, key) => {
+		// 	totalRows += value.length;
+		// 	// console.log(totalRows);
+		// 	// console.log(value.length);
+		// 	const dataset: InsightDataset = {
+		// 		id: key,
+		// 		kind: InsightDatasetKind.Sections,
+		// 		numRows: totalRows
+		// 	};
+		// 	datasetList.push(dataset);
+		// });
+
+		console.log(datasetList);
+		return Promise.resolve(datasetList);
 	}
 }
 

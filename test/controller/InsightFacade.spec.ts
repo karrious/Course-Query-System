@@ -20,13 +20,14 @@ describe("InsightFacade", function () {
 
 	// Declare datasets used in tests. You should add more datasets like this!
 	let sections: string;
+	let sectionsL: string;
 
 	before(function () {
 		// This block runs once and loads the datasets.
 		// sections = getContentFromArchives("pair.zip");
 
 		// Just in case there is anything hanging around from a previous run of the test suite
-		// clearDisk();
+		clearDisk();
 	});
 
 	describe("Add/Remove/List Dataset", function () {
@@ -51,7 +52,7 @@ describe("InsightFacade", function () {
 			// This section resets the data directory (removing any cached data)
 			// This runs after each test, which should make each test independent of the previous one
 			console.info(`AfterTest: ${this.currentTest?.title}`);
-			// clearDisk();
+			clearDisk();
 		});
 
 		// This is a unit test. You should create more like this!
@@ -78,9 +79,13 @@ describe("InsightFacade", function () {
 		});
 
 		it ("should successfully add a dataset", function() {
-			const result = facade.addDataset("ubc", sections, InsightDatasetKind.Sections);
+			sectionsL = getContentFromArchives("zoo++.zip");
+			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
 			return expect(result).to.eventually.deep.equal(["ubc"]);
 		});
+		// zoo++ is 2 empty + 1 non empty of 10
+		// pairS is of 1500+ files, smaller version of pair
+		// pairM is of 3500+ files
 
 		it("should successfully add multiple datasets", async function(){
 			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
@@ -157,31 +162,42 @@ describe("InsightFacade", function () {
 		});
 
 		// listDatasets tests
-		it("Can successfully list no dataset", function(){
+		it("Can successfully list no dataset", function (){
 			const result = facade.listDatasets();
 			return expect(result).to.eventually.deep.equal([]);
 
 		});
 
-		it("Can successfully list one added dataset", async function(){
+		it("Can successfully list one small added dataset", async function(){
 			await facade.addDataset("ubc", sections, InsightDatasetKind.Sections);
 			const result = facade.listDatasets();
 			return expect(result).to.eventually.deep.equal([{
 				id: "ubc",
 				kind: InsightDatasetKind.Sections,
-				numRows: 64612}]);
+				numRows: 16}]);
+		});
+
+		it("Can successfully list a larger added dataset", async function(){
+			sectionsL = getContentFromArchives("pairS.zip");
+			await facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
+			const result = facade.listDatasets();
+			return expect(result).to.eventually.deep.equal([{
+				id: "ubc",
+				kind: InsightDatasetKind.Sections,
+				numRows: 10}]);
 		});
 
 		it("Can successfully list all added datasets", async function(){
+			sectionsL = getContentFromArchives("pair.zip");
 			await facade.addDataset("ubco", sections, InsightDatasetKind.Sections);
-			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
+			await facade.addDataset("ubcv", sectionsL, InsightDatasetKind.Sections);
 			const result = await facade.listDatasets();
 			expect(result).to.have.length(2);
 			return expect(result).to.have.deep.members([
 				{
 					id: "ubco",
 					kind: InsightDatasetKind.Sections,
-					numRows: 64612,
+					numRows: 16,
 				},
 				{
 					id: "ubcv",
@@ -215,7 +231,7 @@ describe("InsightFacade", function () {
 
 		after(function () {
 			console.info(`After: ${this.test?.parent?.title}`);
-			// clearDisk();
+			clearDisk();
 		});
 
 		type PQErrorKind = "ResultTooLargeError" | "InsightError";
