@@ -32,7 +32,6 @@ export class PerformQuery{
 		return this.insightResult;
 	}
 
-	// @ts-ignore
 	private logicComparison(logic: any): InsightResult[]{
 		const logicOperator: string = Object.keys(logic)[0];
 		const conditions = logic[logicOperator];
@@ -56,30 +55,31 @@ export class PerformQuery{
 					}
 				}
 				return results;
-			case "OR":
-				// eslint-disable-next-line no-case-declarations
-				let uniqueResults: Set<InsightResult> = new Set();
+			case "OR": {
+				let combinedResults: InsightResult[] = [];
 				for (let condition of conditions) {
 					const conditionKey = Object.keys(condition)[0];
-					if (conditionKey === "AND" || conditionKey === "OR"){
-						for (let result of this.logicComparison(condition)) {
-							uniqueResults.add(result);
-						}
-					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ"){
-						for (let result of this.mComparison(condition)) {
-							uniqueResults.add(result);
-						}
-					} else if (conditionKey === "IS"){
-						for (let result of this.sComparison(condition)) {
-							uniqueResults.add(result);
-						}
-					} else if (conditionKey === "NOT"){
-						for (let result of this.negation(condition)) {
-							uniqueResults.add(result);
+					let tempResults: InsightResult[] = [];
+					if (conditionKey === "AND" || conditionKey === "OR") {
+						tempResults = this.logicComparison(condition);
+					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ") {
+						tempResults = this.mComparison(condition);
+					} else if (conditionKey === "IS") {
+						tempResults = this.sComparison(condition);
+					} else if (conditionKey === "NOT") {
+						tempResults = this.negation(condition);
+					}
+					for (let result of tempResults) {
+						if (!combinedResults.some((combinedResult) =>
+							JSON.stringify(combinedResult) === JSON.stringify(result))) {
+							combinedResults.push(result);
 						}
 					}
 				}
-				return Array.from(uniqueResults);
+				return combinedResults;
+			}
+			default:
+				throw new InsightError("Invalid logic operator.");
 		}
 	}
 
@@ -104,8 +104,7 @@ export class PerformQuery{
 		const sKey: string = Object.keys(s)[0];
 		const value: string = s[sKey];
 		return this.insightResult.filter((section) => {
-			// @ts-ignore
-			const sectionValue: string = section[sKey];
+			const sectionValue: string = section[sKey] as string;
 
 			if (value.startsWith("*") && value.endsWith("*")) {
 				return sectionValue.includes(value.substring(1, value.length - 1));
@@ -141,12 +140,12 @@ export class PerformQuery{
 			return orderDataset;
 		}
 		return orderDataset.sort((a, b) => {
-			if (typeof a[order] === "number" && typeof b[order] === "number") {
-				// @ts-ignore
-				return (a[order] - b[order]);
-			} else if (typeof a[order] === "string" && typeof b[order] === "string") {
-				// @ts-ignore
-				return a[order].localeCompare(b[order]);
+			let aValue = a[order];
+			let bValue = b[order];
+			if (typeof aValue === "number" && typeof bValue === "number") {
+				return (aValue - bValue);
+			} else if (typeof aValue === "string" && typeof bValue === "string") {
+				return aValue.localeCompare(bValue);
 			}
 			throw new InsightError("Wrong type for order key.");
 		});
