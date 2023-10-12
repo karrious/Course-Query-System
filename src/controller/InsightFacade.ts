@@ -7,6 +7,9 @@ import {
 	NotFoundError
 } from "./IInsightFacade";
 
+import {QueryValidator} from "./utilities/QueryValidator";
+import {PerformQuery} from "./utilities/PerformQuery";
+
 /**
  * This is the main programmatic entry point for the project.
  * Method documentation is in IInsightFacade
@@ -26,7 +29,21 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		return Promise.reject("Not implemented.");
+		return new Promise((resolve, reject) => {
+			const queryValidator = new QueryValidator();
+			try {
+				queryValidator.queryValidator(query);
+				const performQueryHelper = new PerformQuery();
+				const results = performQueryHelper.performQueryHelper(query, id);
+				return Promise.resolve(results);
+			} catch (error) {
+				if (error instanceof InsightError){
+					return Promise.reject(error);
+				} else {
+					return Promise.reject(new InsightError("Unexpected error."));
+				}
+			}
+		});
 	}
 
 	public listDatasets(): Promise<InsightDataset[]> {
