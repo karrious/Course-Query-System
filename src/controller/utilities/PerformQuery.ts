@@ -3,7 +3,7 @@ import {InsightError, InsightResult, ResultTooLargeError} from "../IInsightFacad
 export class PerformQuery{
 	public insightResult: InsightResult[] = [];
 
-	public performQueryHelper(query: any, id: string): InsightResult[]{
+	public performQueryHelper(query: any): InsightResult[]{
 		let filterKey = Object.keys(query["WHERE"])[0];
 		if (filterKey === "AND" || filterKey === "OR"){
 			this.insightResult = this.logicComparison(query["WHERE"][filterKey]);
@@ -32,6 +32,7 @@ export class PerformQuery{
 		return this.insightResult;
 	}
 
+	// @ts-ignore
 	private logicComparison(logic: any): InsightResult[]{
 		const logicOperator: string = Object.keys(logic)[0];
 		const conditions = logic[logicOperator];
@@ -56,7 +57,8 @@ export class PerformQuery{
 				}
 				return results;
 			case "OR":
-				let uniqueResults: Set<insightResult> = new Set();
+				// eslint-disable-next-line no-case-declarations
+				let uniqueResults: Set<InsightResult> = new Set();
 				for (let condition of conditions) {
 					const conditionKey = Object.keys(condition)[0];
 					if (conditionKey === "AND" || conditionKey === "OR"){
@@ -102,6 +104,7 @@ export class PerformQuery{
 		const sKey: string = Object.keys(s)[0];
 		const value: string = s[sKey];
 		return this.insightResult.filter((section) => {
+			// @ts-ignore
 			const sectionValue: string = section[sKey];
 
 			if (value.startsWith("*") && value.endsWith("*")) {
@@ -139,8 +142,10 @@ export class PerformQuery{
 		}
 		return orderDataset.sort((a, b) => {
 			if (typeof a[order] === "number" && typeof b[order] === "number") {
+				// @ts-ignore
 				return (a[order] - b[order]);
 			} else if (typeof a[order] === "string" && typeof b[order] === "string") {
+				// @ts-ignore
 				return a[order].localeCompare(b[order]);
 			}
 			throw new InsightError("Wrong type for order key.");

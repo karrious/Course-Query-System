@@ -182,7 +182,7 @@ export default class InsightFacade implements IInsightFacade {
 			try {
 				queryValidator.queryValidator(query);
 				const performQueryHelper = new PerformQuery();
-				const results = performQueryHelper.performQueryHelper(query, id);
+				const results = performQueryHelper.performQueryHelper(query);
 				return Promise.resolve(results);
 			} catch (error) {
 				if (error instanceof InsightError){
