@@ -3,7 +3,8 @@ import {InsightError, InsightResult, ResultTooLargeError} from "../IInsightFacad
 export class PerformQuery{
 	public insightResult: InsightResult[] = [];
 
-	public performQueryHelper(query: any): InsightResult[]{
+	public performQueryHelper(query: any, datasetContent: InsightResult[]): InsightResult[]{
+		this.insightResult = datasetContent;
 		let filterKey = Object.keys(query["WHERE"])[0];
 		if (filterKey === "AND" || filterKey === "OR"){
 			this.insightResult = this.logicComparison(query["WHERE"][filterKey]);

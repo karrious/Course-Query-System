@@ -180,16 +180,16 @@ export default class InsightFacade implements IInsightFacade {
 		return new Promise((resolve, reject) => {
 			const queryValidator = new QueryValidator();
 			try {
-				queryValidator.queryValidator(query);
-				const performQueryHelper = new PerformQuery();
+				const datasetID = queryValidator.queryValidator(query);
+				if (!Object.keys(this.datasets).includes(datasetID)) {
+					throw new InsightError("Reference dataset id not added yet.");
+				}
+				const datasetContent = this.datasets.get(datasetID);
+				const performQueryHelper = new PerformQuery(datasetContent);
 				const results = performQueryHelper.performQueryHelper(query);
 				return Promise.resolve(results);
 			} catch (error) {
-				if (error instanceof InsightError){
-					return Promise.reject(error);
-				} else {
-					return Promise.reject(new InsightError("Unexpected error."));
-				}
+				return Promise.reject(error);
 			}
 		});
 	}
