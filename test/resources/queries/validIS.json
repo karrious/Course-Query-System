@@ -1,0 +1,1348 @@
+{
+	"title": "valid IS",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"sections_instructor": "*bell*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_instructor",
+				"sections_year",
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 61.96
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 62.76
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 64.31
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 65.17
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "campbell, christopher",
+			"sections_year": 2015,
+			"sections_avg": 65.33
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2007,
+			"sections_avg": 66.27
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2007,
+			"sections_avg": 66.34
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 66.4
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2011,
+			"sections_avg": 67.08
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2007,
+			"sections_avg": 67.16
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 67.25
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 67.83
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2014,
+			"sections_avg": 68.22
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2016,
+			"sections_avg": 68.61
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 68.71
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2010,
+			"sections_avg": 68.94
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2013,
+			"sections_avg": 69.4
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 69.84
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2012,
+			"sections_avg": 69.95
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2016,
+			"sections_avg": 70.07
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 70.09
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 70.17
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 70.21
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 70.38
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 70.4
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 70.44
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2015,
+			"sections_avg": 70.59
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2007,
+			"sections_avg": 70.62
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2012,
+			"sections_avg": 70.92
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 70.95
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2007,
+			"sections_avg": 70.95
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 71.12
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2013,
+			"sections_avg": 71.24
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2014,
+			"sections_avg": 71.28
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 71.35
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 71.41
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 71.41
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2015,
+			"sections_avg": 71.45
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 71.58
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 71.61
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2014,
+			"sections_avg": 71.62
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_instructor": "campbell, christopher david",
+			"sections_year": 2010,
+			"sections_avg": 71.69
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 71.71
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 71.8
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 71.83
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2011,
+			"sections_avg": 71.85
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 71.87
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2010,
+			"sections_avg": 71.94
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2010,
+			"sections_avg": 72.19
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 72.24
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 72.42
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 72.44
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 72.45
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 72.47
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 72.51
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 72.53
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2011,
+			"sections_avg": 72.53
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 72.59
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 72.68
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 72.72
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 72.73
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 72.83
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2016,
+			"sections_avg": 73
+		},
+		{
+			"sections_dept": "fnel",
+			"sections_instructor": "campbell, jill",
+			"sections_year": 2015,
+			"sections_avg": 73
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2011,
+			"sections_avg": 73.09
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 73.11
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 73.12
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 73.24
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 73.26
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2015,
+			"sections_avg": 73.31
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2012,
+			"sections_avg": 73.36
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 73.45
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2013,
+			"sections_avg": 73.49
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 73.54
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2015,
+			"sections_avg": 73.62
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 73.68
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 73.73
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 73.75
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2011,
+			"sections_avg": 73.83
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 73.86
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 73.87
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2014,
+			"sections_avg": 74.04
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2007,
+			"sections_avg": 74.06
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 74.16
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 74.16
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 74.17
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "au-yeung, enrico;laba, izabella",
+			"sections_year": 2013,
+			"sections_avg": 74.23
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2012,
+			"sections_avg": 74.26
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2012,
+			"sections_avg": 74.29
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 74.32
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 74.33
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_instructor": "campbell, christopher david",
+			"sections_year": 2010,
+			"sections_avg": 74.44
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2013,
+			"sections_avg": 74.59
+		},
+		{
+			"sections_dept": "anth",
+			"sections_instructor": "campbell, alice",
+			"sections_year": 2013,
+			"sections_avg": 74.74
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 74.94
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 74.95
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 74.95
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 74.95
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 74.98
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 75
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 75.24
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2011,
+			"sections_avg": 75.34
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 75.35
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 75.4
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 75.54
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2015,
+			"sections_avg": 75.54
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "berkowitz, jonathan;ghement, isabella",
+			"sections_year": 2007,
+			"sections_avg": 75.6
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 75.61
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 75.66
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 75.76
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2014,
+			"sections_avg": 75.79
+		},
+		{
+			"sections_dept": "anth",
+			"sections_instructor": "campbell, alice",
+			"sections_year": 2014,
+			"sections_avg": 75.99
+		},
+		{
+			"sections_dept": "arth",
+			"sections_instructor": "campbell, alice",
+			"sections_year": 2012,
+			"sections_avg": 76
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 76
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2010,
+			"sections_avg": 76.06
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 76.09
+		},
+		{
+			"sections_dept": "fnel",
+			"sections_instructor": "campbell, fiona;grant, larry",
+			"sections_year": 2015,
+			"sections_avg": 76.21
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 76.38
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 76.5
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2013,
+			"sections_avg": 76.58
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2015,
+			"sections_avg": 76.65
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2016,
+			"sections_avg": 76.68
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 77.02
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 77.12
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 77.26
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 77.29
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 77.3
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 77.69
+		},
+		{
+			"sections_dept": "arth",
+			"sections_instructor": "campbell, alice",
+			"sections_year": 2014,
+			"sections_avg": 77.76
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 77.89
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 77.98
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 78.5
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 78.52
+		},
+		{
+			"sections_dept": "busi",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 78.53
+		},
+		{
+			"sections_dept": "fnel",
+			"sections_instructor": "campbell, fiona;grant, larry",
+			"sections_year": 2015,
+			"sections_avg": 78.55
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 78.59
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 78.74
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 78.76
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 78.93
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2015,
+			"sections_avg": 79
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 79.05
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 79.09
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim;tba",
+			"sections_year": 2011,
+			"sections_avg": 79.22
+		},
+		{
+			"sections_dept": "dent",
+			"sections_instructor": "campbell, karen;harrison, rosamund louise;kennedy, david;mathu-muju, kavita;richman, joy marion",
+			"sections_year": 2015,
+			"sections_avg": 79.25
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 79.72
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2013,
+			"sections_avg": 79.91
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 80.05
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 80.27
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2014,
+			"sections_avg": 80.47
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2011,
+			"sections_avg": 80.72
+		},
+		{
+			"sections_dept": "thtr",
+			"sections_instructor": "darbellay, jennifer;eberle, robert francis;fedoruk, ronald",
+			"sections_year": 2009,
+			"sections_avg": 80.94
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2012,
+			"sections_avg": 80.98
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim",
+			"sections_year": 2012,
+			"sections_avg": 81
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2015,
+			"sections_avg": 81.36
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 81.44
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2010,
+			"sections_avg": 81.67
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2009,
+			"sections_avg": 82.63
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2015,
+			"sections_avg": 82.71
+		},
+		{
+			"sections_dept": "dent",
+			"sections_instructor": "campbell, karen",
+			"sections_year": 2015,
+			"sections_avg": 82.75
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "bell, colleen",
+			"sections_year": 2013,
+			"sections_avg": 82.78
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim;vedam, saraswathi",
+			"sections_year": 2007,
+			"sections_avg": 82.9
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2007,
+			"sections_avg": 83.18
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim;krebs, claudia",
+			"sections_year": 2015,
+			"sections_avg": 83.35
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2014,
+			"sections_avg": 83.4
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_instructor": "belleville, patrice",
+			"sections_year": 2014,
+			"sections_avg": 83.41
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "campbell, chuck",
+			"sections_year": 2009,
+			"sections_avg": 83.7
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, allison;simmons, valerie",
+			"sections_year": 2015,
+			"sections_avg": 84.92
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2016,
+			"sections_avg": 85.44
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim;simmons, valerie",
+			"sections_year": 2012,
+			"sections_avg": 85.5
+		},
+		{
+			"sections_dept": "lled",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2015,
+			"sections_avg": 85.55
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "bell, colleen",
+			"sections_year": 2012,
+			"sections_avg": 85.67
+		},
+		{
+			"sections_dept": "cnps",
+			"sections_instructor": "bell, deborah",
+			"sections_year": 2009,
+			"sections_avg": 85.91
+		},
+		{
+			"sections_dept": "dent",
+			"sections_instructor": "campbell, karen",
+			"sections_year": 2015,
+			"sections_avg": 86
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "bell, colleen",
+			"sections_year": 2015,
+			"sections_avg": 86.16
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim",
+			"sections_year": 2014,
+			"sections_avg": 86.17
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_instructor": "campbell, suzanne",
+			"sections_year": 2014,
+			"sections_avg": 86.17
+		},
+		{
+			"sections_dept": "thtr",
+			"sections_instructor": "driscoll-bell, jean",
+			"sections_year": 2011,
+			"sections_avg": 86.32
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2014,
+			"sections_avg": 86.38
+		},
+		{
+			"sections_dept": "anth",
+			"sections_instructor": "bell, kirsten",
+			"sections_year": 2014,
+			"sections_avg": 86.4
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "bell, colleen",
+			"sections_year": 2011,
+			"sections_avg": 86.53
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "bell, colleen",
+			"sections_year": 2009,
+			"sections_avg": 86.56
+		},
+		{
+			"sections_dept": "lled",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2011,
+			"sections_avg": 86.63
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2014,
+			"sections_avg": 86.95
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2009,
+			"sections_avg": 87
+		},
+		{
+			"sections_dept": "epse",
+			"sections_instructor": "campbell, katie",
+			"sections_year": 2013,
+			"sections_avg": 87.03
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2013,
+			"sections_avg": 87.24
+		},
+		{
+			"sections_dept": "thtr",
+			"sections_instructor": "driscoll-bell, jean",
+			"sections_year": 2010,
+			"sections_avg": 87.27
+		},
+		{
+			"sections_dept": "libr",
+			"sections_instructor": "bell, colleen",
+			"sections_year": 2010,
+			"sections_avg": 87.29
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2012,
+			"sections_avg": 87.31
+		},
+		{
+			"sections_dept": "phth",
+			"sections_instructor": "campbell, kristin;eng, janice;hunt, michael anthony;scott, alexander;virji-babul, naznin",
+			"sections_year": 2015,
+			"sections_avg": 87.37
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "broten, courtney;campbell, allison;mcrae, lorna",
+			"sections_year": 2015,
+			"sections_avg": 87.47
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2011,
+			"sections_avg": 87.5
+		},
+		{
+			"sections_dept": "lled",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2010,
+			"sections_avg": 87.56
+		},
+		{
+			"sections_dept": "phth",
+			"sections_instructor": "campbell, kristin;eng, janice;scott, alexander;virji-babul, naznin",
+			"sections_year": 2016,
+			"sections_avg": 87.91
+		},
+		{
+			"sections_dept": "cnps",
+			"sections_instructor": "bell, deborah",
+			"sections_year": 2013,
+			"sections_avg": 88.13
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2011,
+			"sections_avg": 88.26
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "denizot, isabelle",
+			"sections_year": 2011,
+			"sections_avg": 88.28
+		},
+		{
+			"sections_dept": "epse",
+			"sections_instructor": "bell, deborah",
+			"sections_year": 2009,
+			"sections_avg": 88.42
+		},
+		{
+			"sections_dept": "rhsc",
+			"sections_instructor": "campbell, kristin;nimmon, laura",
+			"sections_year": 2015,
+			"sections_avg": 88.5
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, allison",
+			"sections_year": 2015,
+			"sections_avg": 88.58
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2011,
+			"sections_avg": 88.6
+		},
+		{
+			"sections_dept": "epse",
+			"sections_instructor": "campbell, katie",
+			"sections_year": 2014,
+			"sections_avg": 89.31
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "ghement, isabella",
+			"sections_year": 2009,
+			"sections_avg": 89.5
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2015,
+			"sections_avg": 89.75
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2014,
+			"sections_avg": 90.8
+		},
+		{
+			"sections_dept": "educ",
+			"sections_instructor": "carr, wendy;denizot, isabelle",
+			"sections_year": 2010,
+			"sections_avg": 91.18
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2014,
+			"sections_avg": 92.17
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2015,
+			"sections_avg": 92.17
+		},
+		{
+			"sections_dept": "midw",
+			"sections_instructor": "campbell, kim;vedam, saraswathi",
+			"sections_year": 2010,
+			"sections_avg": 92.29
+		},
+		{
+			"sections_dept": "thtr",
+			"sections_instructor": "driscoll-bell, jean",
+			"sections_year": 2009,
+			"sections_avg": 92.32
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "ghement, isabella",
+			"sections_year": 2011,
+			"sections_avg": 92.45
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2012,
+			"sections_avg": 93
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2009,
+			"sections_avg": 93.6
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2013,
+			"sections_avg": 94.08
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "ghement, isabella",
+			"sections_year": 2012,
+			"sections_avg": 94.5
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2013,
+			"sections_avg": 94.5
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "ghement, isabella",
+			"sections_year": 2010,
+			"sections_avg": 94.56
+		},
+		{
+			"sections_dept": "comm",
+			"sections_instructor": "ghement, isabella",
+			"sections_year": 2007,
+			"sections_avg": 94.75
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2012,
+			"sections_avg": 95.7
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_instructor": "campbell, deborah",
+			"sections_year": 2014,
+			"sections_avg": 97
+		},
+		{
+			"sections_dept": "math",
+			"sections_instructor": "laba, izabella",
+			"sections_year": 2010,
+			"sections_avg": 97.09
+		}
+	]
+}

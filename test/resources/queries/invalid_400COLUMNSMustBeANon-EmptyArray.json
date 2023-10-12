@@ -1,0 +1,15 @@
+{
+	"title": "invalid: 400 COLUMNS must be a non-empty array",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"sections_fail": 3
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": []
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
