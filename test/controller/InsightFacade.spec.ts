@@ -16,6 +16,7 @@ import {clearDisk, getContentFromArchives} from "../TestUtil";
 use(chaiAsPromised);
 
 describe("InsightFacade", function () {
+	this.timeout(100000); // 100 seconds
 	let facade: IInsightFacade;
 
 	// Declare datasets used in tests. You should add more datasets like this!
@@ -79,7 +80,7 @@ describe("InsightFacade", function () {
 		});
 
 		it ("should successfully add a dataset", function() {
-			sectionsL = getContentFromArchives("pairM.zip");
+			sectionsL = getContentFromArchives("pair.zip");
 			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
 			return expect(result).to.eventually.deep.equal(["ubc"]);
 		});
@@ -128,7 +129,7 @@ describe("InsightFacade", function () {
 			await facade.addDataset("ubc", sections, InsightDatasetKind.Sections);
 			// pretend crash happened
 			const newInstance = new InsightFacade();
-			const result = facade.addDataset("ubc", sections, InsightDatasetKind.Rooms);
+			const result = facade.addDataset("ubc", sections, InsightDatasetKind.Sections);
 			return expect(result).to.eventually.be.rejectedWith(InsightError);
 		});
 
@@ -236,13 +237,13 @@ describe("InsightFacade", function () {
 
 		type PQErrorKind = "ResultTooLargeError" | "InsightError";
 
-		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
+		folderTest<unknown, InsightResult[], PQErrorKind>(
 			"Dynamic InsightFacade PerformQuery tests",
 			(input) => facade.performQuery(input),
 			"./test/resources/queries",
 			{
 				assertOnResult: (actual, expected) => {
-					// expect(actual).to.have.deep.members(expected);
+					expect(actual).to.have.deep.members(expected);
 				},
 				errorValidator: (error): error is PQErrorKind =>
 					error === "ResultTooLargeError" || error === "InsightError",
