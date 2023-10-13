@@ -49,20 +49,20 @@ export class PerformQuery{
 			case "AND":
 				for (let condition of conditions) {
 					const conditionKey = Object.keys(condition)[0];
+					let tempResults: InsightResult[] = [];
 					if (conditionKey === "AND" || conditionKey === "OR") {
-						results = results.filter((result) =>
-							this.logicComparison(condition, datasetContent).includes(result));
+						tempResults = this.logicComparison(condition, datasetContent);
 					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ") {
-						results = results.filter((result) =>
-							this.mComparison(condition, datasetContent).includes(result));
+						tempResults = this.mComparison(condition, datasetContent);
 					} else if (conditionKey === "IS") {
-						results = results.filter((result) =>
-							this.sComparison(condition[conditionKey], datasetContent).includes(result));
+						tempResults = this.sComparison(condition, datasetContent);
 					} else if (conditionKey === "NOT") {
-						results = results.filter((result) =>
-							this.negation(condition[conditionKey], datasetContent).includes(result));
+						tempResults = this.negation(condition, datasetContent);
 					}
-				} return results;
+					results = results.filter((result) => tempResults.includes(result));
+				}
+				return results;
+
 			case "OR": {
 				let combinedResults: InsightResult[] = [];
 				for (let condition of conditions) {
@@ -115,13 +115,22 @@ export class PerformQuery{
 	private sComparison(s: any, datasetContent: any[]): InsightResult[]{
 		const sKeyOriginal: string = Object.keys(s)[0]; // "id_field"
 		const sKey: string = sKeyOriginal.split("_")[1]; // "field"
-		let value: string = s[sKeyOriginal];
+		let value: any = s[sKeyOriginal];
 		let results: InsightResult[] = datasetContent;
 
-		if (value.startsWith("*") && value.endsWith("*")) {
+		if (typeof value === "object" && value !== null) {
+			value = value[Object.keys(value)[0]];
+		}
+
+		if (typeof value !== "string") {
+			console.error("Expected a string but got:", typeof value, value);
+		}
+
+
+		if (value.startsWith("*") === 0 && value.endsWith("*")) {
 			value = value.substring(1, value.length - 1);
-			results = results.filter((section) => (section[sKey] as string).includes(value));;
-		} else if (value.startsWith("*")) {
+			results = results.filter((section) => (section[sKey] as string).includes(value));
+		} else if (value.startsWith("*") === 0) {
 			value = value.substring(1);
 			results = results.filter((section) => (section[sKey] as string).endsWith(value));
 		} else if (value.endsWith("*")) {
@@ -133,7 +142,6 @@ export class PerformQuery{
 
 		return results;
 	}
-
 	private negation(negation: any, datasetContent: any[]): InsightResult[]{
 		let negationResults: InsightResult[] = [];
 		const negationKey = Object.keys(negation)[0];
