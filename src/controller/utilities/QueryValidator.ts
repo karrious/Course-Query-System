@@ -73,8 +73,12 @@ export class QueryValidator{
 	private mComparisonValidator(mComparison: any, id: string): boolean{
 		const mKey = Object.keys(mComparison)[0];
 
+		if (Object.keys(mComparison).length > 1) {
+			throw new InsightError("Invalid argument in comparator");
+		}
+
 		// make sure key is equal to "id_field" and value is a number
-		if (this.fieldValidator(mKey, id, this.mfields) && typeof mComparison[mKey] !== "number"){
+		if (!this.fieldValidator(mKey, id, this.mfields) || typeof mComparison[mKey] !== "number"){
 			throw new InsightError("Invalid value in mComparison.");
 		}
 		return true;
@@ -84,8 +88,12 @@ export class QueryValidator{
 		const sKey = Object.keys(sComparison)[0];
 		const value = sComparison[sKey];
 
+		if (Object.keys(sComparison).length > 1) {
+			throw new InsightError("Invalid argument in comparator");
+		}
+
 		// make sure key is equal to "id_field" and value is a string
-		if (this.fieldValidator(sKey, id, this.sfields) && typeof value !== "string"){
+		if (!this.fieldValidator(sKey, id, this.sfields) || typeof value !== "string"){
 			throw new InsightError("Invalid value in sComparison.");
 		}
 
@@ -115,6 +123,10 @@ export class QueryValidator{
 	}
 
 	private negationValidator(negation: any, id: string): boolean{
+		if (Object.keys(negation).length > 1) {
+			throw new InsightError("Invalid argument in comparator");
+		}
+
 		if (typeof negation !== "object" || Object.keys(negation).length !== 1){
 			throw new InsightError("Wrong negation.");
 		}
@@ -182,7 +194,7 @@ export class QueryValidator{
 	// check if "id_field" is valid
 	private fieldValidator(field: string, id: string, fields: string[]): boolean {
 		const parts = field.split("_");
-		if (parts.length !== 2 || parts[0] !== id) {
+		if (parts.length !== 2 || parts[0] !== id || !fields.includes(parts[1])) {
 			return false;
 		}
 		return fields.includes(parts[1]);

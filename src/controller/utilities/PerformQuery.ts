@@ -27,11 +27,16 @@ export class PerformQuery{
 			for (const col of columnsOriginal) {
 				columns.push(this.splitField(col));
 			}
-
 			let optionsResult = this.insightResult.map((result) => {
 				let columnResult: InsightResult = {};
 				for (let column of columns){
-					columnResult[id + "_" + column] = result[column];
+					if (column === "year") {
+						columnResult[id + "_" + column] = Number(result[column]);
+					} else if (column === "uuid") {
+						columnResult[id + "_" + column] = String(result[column]);
+					} else {
+						columnResult[id + "_" + column] = result[column];
+					}
 				}
 				return columnResult;
 			});
@@ -42,7 +47,6 @@ export class PerformQuery{
 			} else {
 				this.insightResult = optionsResult;
 			}
-
 			return this.insightResult;
 		} catch (error) {
 			console.error(error);
@@ -182,7 +186,7 @@ export class PerformQuery{
 		return results;
 	}
 
-	private orderQuery(orderDataset: InsightResult[], order: any): InsightResult[]{
+	private orderQuery(orderDataset: InsightResult[], order: string): InsightResult[]{
 		if (!order || order.length === 0) {
 			return orderDataset;
 		}
