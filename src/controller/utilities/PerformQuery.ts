@@ -133,21 +133,30 @@ export class PerformQuery{
 	private sComparison(s: any, datasetContent: any[]): InsightResult[]{
 		const sKeyOriginal: string = Object.keys(s)[0]; // "id_field"
 		const sKey: string = sKeyOriginal.split("_")[1]; // "field"
-		let value: string = s[sKeyOriginal];
+		let value: any = s[sKeyOriginal];
 		let results: InsightResult[] = datasetContent;
 
-		// if (value.startsWith("*") && value.endsWith("*")) {
-		// 	value = value.substring(1, value.length - 1);
-		// 	results = results.filter((section) => (section[sKey] as string).includes(value));;
-		// } else if (value.startsWith("*")) {
-		// 	value = value.substring(1);
-		// 	results = results.filter((section) => (section[sKey] as string).endsWith(value));
-		// } else if (value.endsWith("*")) {
-		// 	value = value.substring(0, value.length - 1);
-		// 	results = results.filter((section) => (section[sKey] as string).startsWith(value));
-		// } else {
-		// 	results = results.filter((section) => section[sKey] === value);
-		// }
+		if (typeof value === "object" && value !== null) {
+			value = value[Object.keys(value)[0]];
+		}
+
+		if (typeof value !== "string") {
+			console.error("Expected a string but got:", typeof value, value);
+		}
+
+
+		if (value.startsWith("*") === 0 && value.endsWith("*")) {
+			value = value.substring(1, value.length - 1);
+			results = results.filter((section) => (section[sKey] as string).includes(value));
+		} else if (value.startsWith("*") === 0) {
+			value = value.substring(1);
+			results = results.filter((section) => (section[sKey] as string).endsWith(value));
+		} else if (value.endsWith("*")) {
+			value = value.substring(0, value.length - 1);
+			results = results.filter((section) => (section[sKey] as string).startsWith(value));
+		} else {
+			results = results.filter((section) => section[sKey] === value);
+		}
 
 		return results;
 	}
