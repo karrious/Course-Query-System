@@ -3,17 +3,17 @@ import {InsightError, InsightResult, ResultTooLargeError} from "../IInsightFacad
 export class PerformQuery{
 	public insightResult: InsightResult[] = [];
 
-	public performQueryHelper(query: any, datasetContent: InsightResult[]): InsightResult[]{
+	public performQueryHelper(query: any, datasetContent: any[]): InsightResult[]{
 		this.insightResult = datasetContent;
 		let filterKey = Object.keys(query["WHERE"])[0];
 		if (filterKey === "AND" || filterKey === "OR"){
-			this.insightResult = this.logicComparison(query["WHERE"][filterKey]);
+			this.insightResult = this.logicComparison(query["WHERE"][filterKey], datasetContent);
 		} else if (filterKey === "LT" || filterKey === "GT" || filterKey === "EQ"){
-			this.insightResult = this.mComparison(query["WHERE"][filterKey]);
+			this.insightResult = this.mComparison(query["WHERE"][filterKey], datasetContent);
 		} else if (filterKey === "IS"){
-			this.insightResult = this.sComparison(query["WHERE"][filterKey]);
+			this.insightResult = this.sComparison(query["WHERE"][filterKey], datasetContent);
 		} else if (filterKey === "NOT"){
-			this.insightResult = this.negation(query["WHERE"][filterKey]);
+			this.insightResult = this.negation(query["WHERE"][filterKey], datasetContent);
 		}
 
 		if (this.insightResult.length > 5000) {
@@ -33,42 +33,44 @@ export class PerformQuery{
 		return this.insightResult;
 	}
 
-	private logicComparison(logic: any): InsightResult[]{
+	private logicComparison(logic: any, datasetContent: any[]): InsightResult[]{
 		const logicOperator: string = Object.keys(logic)[0];
 		const conditions = logic[logicOperator];
 		if (conditions.length === 0){
 			throw new InsightError("No conditions provided for logic operator.");
 		}
-		let results: InsightResult[] = [];
-
+		let results: InsightResult[] = datasetContent;
 		switch (logicOperator){
 			case "AND":
 				for (let condition of conditions) {
 					const conditionKey = Object.keys(condition)[0];
-					if (conditionKey === "AND" || conditionKey === "OR"){
-						results = results.filter((result) => this.logicComparison(condition).includes(result));
-					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ"){
-						results = results.filter((result) => this.mComparison(condition).includes(result));
-					} else if (conditionKey === "IS"){
-						results = results.filter((result) => this.sComparison(condition).includes(result));
-					} else if (conditionKey === "NOT"){
-						results = results.filter((result) => !this.negation(condition).includes(result));
+					if (conditionKey === "AND" || conditionKey === "OR") {
+						results = results.filter((result) =>
+							this.logicComparison(condition, datasetContent).includes(result));
+					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ") {
+						results = results.filter((result) =>
+							this.mComparison(condition, datasetContent).includes(result));
+					} else if (conditionKey === "IS") {
+						results = results.filter((result) =>
+							this.sComparison(condition, datasetContent).includes(result));
+					} else if (conditionKey === "NOT") {
+						results = results.filter((result) =>
+							!this.negation(condition, datasetContent).includes(result));
 					}
-				}
-				return results;
+				}return results;
 			case "OR": {
 				let combinedResults: InsightResult[] = [];
 				for (let condition of conditions) {
 					const conditionKey = Object.keys(condition)[0];
 					let tempResults: InsightResult[] = [];
 					if (conditionKey === "AND" || conditionKey === "OR") {
-						tempResults = this.logicComparison(condition);
+						tempResults = this.logicComparison(condition, datasetContent);
 					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ") {
-						tempResults = this.mComparison(condition);
+						tempResults = this.mComparison(condition, datasetContent);
 					} else if (conditionKey === "IS") {
-						tempResults = this.sComparison(condition);
+						tempResults = this.sComparison(condition, datasetContent);
 					} else if (conditionKey === "NOT") {
-						tempResults = this.negation(condition);
+						tempResults = this.negation(condition, datasetContent);
 					}
 					for (let result of tempResults) {
 						if (!combinedResults.some((combinedResult) =>
@@ -76,15 +78,13 @@ export class PerformQuery{
 							combinedResults.push(result);
 						}
 					}
-				}
-				return combinedResults;
+				}return combinedResults;
 			}
-			default:
-				throw new InsightError("Invalid logic operator.");
+			default: throw new InsightError("Invalid logic operator.");
 		}
 	}
 
-	private mComparison(m: any): InsightResult[]{
+	private mComparison(m: any, datasetContent: any[]): InsightResult[]{
 		const comparator: string = Object.keys(m)[0];
 		const key: string = Object.keys(m[comparator])[0];
 		const value: number = m[comparator][key];
@@ -101,10 +101,10 @@ export class PerformQuery{
 		}
 	}
 
-	private sComparison(s: any): InsightResult[]{
+	private sComparison(s: any, datasetContent: any[]): InsightResult[]{
 		const sKey: string = Object.keys(s)[0];
 		const value: string = s[sKey];
-		return this.insightResult.filter((section) => {
+		return datasetContent.filter((section: any) => {
 			const sectionValue: string = section[sKey] as string;
 
 			if (value.startsWith("*") && value.endsWith("*")) {
@@ -119,19 +119,19 @@ export class PerformQuery{
 		});
 	}
 
-	private negation(negation: any): InsightResult[]{
+	private negation(negation: any, datasetContent: any[]): InsightResult[]{
 		let negationResults: InsightResult[] = [];
 		const negationKey = Object.keys(negation)[0];
 		if (negationKey === "AND" || negationKey === "OR"){
-			negationResults = this.logicComparison(negation[negationKey]);
+			negationResults = this.logicComparison(negation[negationKey], datasetContent);
 		} else if (negationKey === "LT" || negationKey === "GT" || negationKey === "EQ"){
-			negationResults = this.mComparison(negation[negationKey]);
+			negationResults = this.mComparison(negation[negationKey], datasetContent);
 		} else if (negationKey === "IS"){
-			negationResults = this.sComparison(negation[negationKey]);
+			negationResults = this.sComparison(negation[negationKey], datasetContent);
 		} else if (negationKey === "NOT"){
-			negationResults = this.negation(negation[negationKey]);
+			negationResults = this.negation(negation[negationKey], datasetContent);
 		}
-		return this.insightResult.filter((result) => {
+		return datasetContent.filter((result) => {
 			return !negationResults.includes(result);
 		});
 	}
@@ -140,7 +140,7 @@ export class PerformQuery{
 		if (!order || order.length === 0) {
 			return orderDataset;
 		}
-		return orderDataset.sort((a, b) => {
+		return orderDataset.sort((a: any, b: any) => {
 			let aValue = a[order];
 			let bValue = b[order];
 			if (typeof aValue === "number" && typeof bValue === "number") {

@@ -199,8 +199,8 @@ export default class InsightFacade implements IInsightFacade {
 					throw new InsightError("Reference dataset id not added yet.");
 				}
 				const datasetContent = this.datasets.get(datasetID);
-				const performQueryHelper = new PerformQuery(datasetContent);
-				const results = performQueryHelper.performQueryHelper(query);
+				const performQueryHelper = new PerformQuery();
+				const results = performQueryHelper.performQueryHelper(query, datasetContent);
 				return Promise.resolve(results);
 			} catch (error) {
 				return Promise.reject(error);
