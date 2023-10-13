@@ -195,10 +195,13 @@ export default class InsightFacade implements IInsightFacade {
 			const queryValidator = new QueryValidator();
 			try {
 				const datasetID = queryValidator.queryValidator(query);
-				if (!Object.keys(this.datasets).includes(datasetID)) {
+				if (!this.datasets.has(datasetID)) {
 					throw new InsightError("Reference dataset id not added yet.");
 				}
 				const datasetContent = this.datasets.get(datasetID);
+				if (!datasetContent){
+					throw new InsightError("Dataset content not found for the given id.");
+				}
 				const performQueryHelper = new PerformQuery();
 				const results = performQueryHelper.performQueryHelper(query, datasetContent);
 				return Promise.resolve(results);
