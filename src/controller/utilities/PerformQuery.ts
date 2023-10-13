@@ -3,7 +3,7 @@ import {InsightError, InsightResult, ResultTooLargeError} from "../IInsightFacad
 export class PerformQuery{
 	public insightResult: InsightResult[] = [];
 
-	public performQueryHelper(query: any, datasetContent: any[]): InsightResult[]{
+	public performQueryHelper(query: any, datasetContent: any[], id: string): InsightResult[]{
 		try {
 			this.insightResult = datasetContent;
 			let filterKey = Object.keys(query["WHERE"])[0];
@@ -21,21 +21,38 @@ export class PerformQuery{
 				throw new ResultTooLargeError("The result is too large.");
 			}
 
-			const columns = query["OPTIONS"]["COLUMNS"];
+			const columnsOriginal = query["OPTIONS"]["COLUMNS"];
 			const order = query["OPTIONS"]["ORDER"];
+			let columns: string[] = [];
+			for (const col of columnsOriginal) {
+				columns.push(this.splitField(col));
+			}
+
 			let optionsResult = this.insightResult.map((result) => {
 				let columnResult: InsightResult = {};
 				for (let column of columns){
-					columnResult[column] = result[column];
+					columnResult[id + "_" + column] = result[column];
 				}
 				return columnResult;
 			});
-			this.insightResult = this.orderQuery(optionsResult, order);
+
+			const keys = Object.keys(query["OPTIONS"]);
+			if (keys.includes("ORDER")) {
+				this.insightResult = this.orderQuery(optionsResult, order);
+			} else {
+				this.insightResult = optionsResult;
+			}
+
 			return this.insightResult;
 		} catch (error) {
 			console.error(error);
 			throw error;
 		}
+	}
+
+	private splitField (column: string): string {
+		let parts = column.split("_");
+		return parts.slice(1).join("_");
 	}
 
 	private logicComparison(logic: any, datasetContent: any[]): InsightResult[]{
@@ -49,20 +66,21 @@ export class PerformQuery{
 			case "AND":
 				for (let condition of conditions) {
 					const conditionKey = Object.keys(condition)[0];
+					let tempResults: InsightResult[] = [];
 					if (conditionKey === "AND" || conditionKey === "OR") {
-						results = results.filter((result) =>
-							this.logicComparison(condition, datasetContent).includes(result));
+						tempResults = this.logicComparison(condition, datasetContent);
 					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ") {
-						results = results.filter((result) =>
-							this.mComparison(condition, datasetContent).includes(result));
+						tempResults = this.mComparison(condition, datasetContent);
 					} else if (conditionKey === "IS") {
-						results = results.filter((result) =>
-							this.sComparison(condition[conditionKey], datasetContent).includes(result));
+						tempResults = this.sComparison(condition, datasetContent);
 					} else if (conditionKey === "NOT") {
-						results = results.filter((result) =>
-							this.negation(condition[conditionKey], datasetContent).includes(result));
+						tempResults = this.negation(condition, datasetContent);
 					}
-				} return results;
+
+					// Intersect results with tempResults
+					results = results.filter((result) => tempResults.includes(result));
+				}
+				return results;
 			case "OR": {
 				let combinedResults: InsightResult[] = [];
 				for (let condition of conditions) {
@@ -118,18 +136,18 @@ export class PerformQuery{
 		let value: string = s[sKeyOriginal];
 		let results: InsightResult[] = datasetContent;
 
-		if (value.startsWith("*") && value.endsWith("*")) {
-			value = value.substring(1, value.length - 1);
-			results = results.filter((section) => (section[sKey] as string).includes(value));;
-		} else if (value.startsWith("*")) {
-			value = value.substring(1);
-			results = results.filter((section) => (section[sKey] as string).endsWith(value));
-		} else if (value.endsWith("*")) {
-			value = value.substring(0, value.length - 1);
-			results = results.filter((section) => (section[sKey] as string).startsWith(value));
-		} else {
-			results = results.filter((section) => section[sKey] === value);
-		}
+		// if (value.startsWith("*") && value.endsWith("*")) {
+		// 	value = value.substring(1, value.length - 1);
+		// 	results = results.filter((section) => (section[sKey] as string).includes(value));;
+		// } else if (value.startsWith("*")) {
+		// 	value = value.substring(1);
+		// 	results = results.filter((section) => (section[sKey] as string).endsWith(value));
+		// } else if (value.endsWith("*")) {
+		// 	value = value.substring(0, value.length - 1);
+		// 	results = results.filter((section) => (section[sKey] as string).startsWith(value));
+		// } else {
+		// 	results = results.filter((section) => section[sKey] === value);
+		// }
 
 		return results;
 	}
@@ -171,3 +189,4 @@ export class PerformQuery{
 		});
 	}
 }
+

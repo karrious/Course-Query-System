@@ -191,24 +191,22 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		return new Promise((resolve, reject) => {
+		try {
 			const queryValidator = new QueryValidator();
-			try {
-				const datasetID = queryValidator.queryValidator(query);
-				if (!this.datasets.has(datasetID)) {
-					throw new InsightError("Reference dataset id not added yet.");
-				}
-				const datasetContent = this.datasets.get(datasetID);
-				if (!datasetContent){
-					throw new InsightError("Dataset content not found for the given id.");
-				}
-				const performQueryHelper = new PerformQuery();
-				const results = performQueryHelper.performQueryHelper(query, datasetContent);
-				return Promise.resolve(results);
-			} catch (error) {
-				return Promise.reject(error);
+			const datasetID = queryValidator.queryValidator(query);
+			if (!this.datasets.has(datasetID)) {
+				throw new InsightError("Reference dataset id not added yet.");
 			}
-		});
+			const datasetContent = this.datasets.get(datasetID);
+			if (!datasetContent) {
+				throw new InsightError("Dataset content not found for the given id.");
+			}
+			const performQueryHelper = new PerformQuery();
+			const results = performQueryHelper.performQueryHelper(query, datasetContent, datasetID);
+			return Promise.resolve(results);
+		} catch (error) {
+			return Promise.reject(error);
+		}
 	}
 
 	public async listDatasets(): Promise<InsightDataset[]> {

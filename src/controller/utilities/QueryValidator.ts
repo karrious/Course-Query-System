@@ -10,6 +10,8 @@ export class QueryValidator{
 
 			// make sure both WHERE and OPTIONS exist
 			if (!keys.includes("WHERE") || !keys.includes("OPTIONS")) {
+				// console.log(keys);
+				// console.log(!keys.includes("WHERE") || !keys.includes("OPTIONS"));
 				throw new InsightError("Missing WHERE or OPTIONS or both");
 			}
 

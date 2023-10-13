@@ -220,7 +220,7 @@ describe("InsightFacade", function () {
 
 			facade = new InsightFacade();
 
-			sections = getContentFromArchives("zoo++.zip");
+			sections = getContentFromArchives("pair.zip");
 			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
 			// Will *fail* if there is a problem reading ANY dataset.
 			const loadDatasetPromises = [
@@ -237,13 +237,13 @@ describe("InsightFacade", function () {
 
 		type PQErrorKind = "ResultTooLargeError" | "InsightError";
 
-		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
+		folderTest<unknown, InsightResult[], PQErrorKind>(
 			"Dynamic InsightFacade PerformQuery tests",
 			(input) => facade.performQuery(input),
 			"./test/resources/queries",
 			{
 				assertOnResult: (actual, expected) => {
-					// expect(actual).to.have.deep.members(expected);
+					expect(actual).to.have.deep.members(expected);
 				},
 				errorValidator: (error): error is PQErrorKind =>
 					error === "ResultTooLargeError" || error === "InsightError",
