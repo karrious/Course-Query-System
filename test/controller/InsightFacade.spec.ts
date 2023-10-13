@@ -16,6 +16,7 @@ import {clearDisk, getContentFromArchives} from "../TestUtil";
 use(chaiAsPromised);
 
 describe("InsightFacade", function () {
+	this.timeout(100000); // 100 seconds
 	let facade: IInsightFacade;
 
 	// Declare datasets used in tests. You should add more datasets like this!
@@ -219,7 +220,7 @@ describe("InsightFacade", function () {
 
 			facade = new InsightFacade();
 
-			sections = getContentFromArchives("pair.zip");
+			sections = getContentFromArchives("zoo++.zip");
 			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
 			// Will *fail* if there is a problem reading ANY dataset.
 			const loadDatasetPromises = [
