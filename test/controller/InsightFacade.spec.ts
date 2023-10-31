@@ -22,6 +22,7 @@ describe("InsightFacade", function () {
 	// Declare datasets used in tests. You should add more datasets like this!
 	let sections: string;
 	let sectionsL: string;
+	let rooms: string;
 
 	before(function () {
 		// This block runs once and loads the datasets.
@@ -35,6 +36,7 @@ describe("InsightFacade", function () {
 		before(function () {
 			// Using a smaller dataset to decrease run time
 			sections = getContentFromArchives("pair1.zip");
+			rooms = getContentFromArchives("campus.zip");
 			console.info(`Before: ${this.test?.parent?.title}`);
 		});
 
@@ -79,7 +81,7 @@ describe("InsightFacade", function () {
 			return expect(result).to.eventually.be.rejectedWith(InsightError);
 		});
 
-		it ("should successfully add a dataset", function() {
+		it ("should successfully add a sections kind dataset", function() {
 			sectionsL = getContentFromArchives("pair.zip");
 			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
 			return expect(result).to.eventually.deep.equal(["ubc"]);
@@ -88,15 +90,27 @@ describe("InsightFacade", function () {
 		// pairS is of 1500+ files, smaller version of pair
 		// pairM is of 3500+ files
 
-		it("should successfully add multiple datasets", async function(){
+		it ("should successfully add a rooms kind dataset", function() {
+			const result = facade.addDataset("ubc", rooms, InsightDatasetKind.Rooms);
+			return expect(result).to.eventually.deep.equal(["ubc"]);
+		});
+
+		it("should successfully add multiple datasets of section kind", async function(){
 			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
 			const result2 =  facade.addDataset("ubco", sections, InsightDatasetKind.Sections);
 			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
 		});
 
-		it("should reject with rooms kind",  function(){
-			const result = facade.addDataset("ubc", sections, InsightDatasetKind.Rooms);
-			return expect(result).to.eventually.be.rejectedWith(InsightError);
+		it("should successfully add multiple datasets of room kind", async function(){
+			await facade.addDataset("ubcv", rooms, InsightDatasetKind.Rooms);
+			const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
+			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
+		});
+
+		it("should successfully add multiple datasets of different kind", async function(){
+			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
+			const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
+			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
 		});
 
 		it("should reject if dataset is not a zip file",  function(){
