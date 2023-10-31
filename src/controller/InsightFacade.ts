@@ -7,6 +7,8 @@ import {
 	InsightResult,
 	NotFoundError
 } from "./IInsightFacade";
+import {Section} from "./section";
+import * as parse5 from "parse5";
 
 import {extractContent, saveContent} from "./utilities/addSections";
 import {processRoomsDataset} from "./utilities/addRooms";
@@ -22,10 +24,12 @@ import {PerformQuery} from "./utilities/PerformQuery";
  */
 export default class InsightFacade implements IInsightFacade {
 	public datasets: Map<string, any[]>;
+	public datasetRooms: Map<string, any[]>;
 	public iDatasets: Map<string, InsightDataset>;
 
 	constructor() {
 		this.datasets = new Map();
+		this.datasetRooms = new Map();
 		this.iDatasets = new Map();
 
 		// crash handling
@@ -45,27 +49,9 @@ export default class InsightFacade implements IInsightFacade {
 					if (!this.datasets.has(datasetId)) {
 						const fileContent = fs.readFileSync("./data/" + datasetId + ".json", "utf-8");
 						const datasetContent = JSON.parse(fileContent);
-
-						if (datasetContent.length > 0) {
-							this.datasets.set(datasetId, datasetContent);
-
-							let kind: InsightDatasetKind = InsightDatasetKind.Sections;
-							if ("fullname" in datasetContent[0]) {
-								kind = InsightDatasetKind.Rooms;
-							}
-
-							const dataArray = this.datasets.get(datasetId);
-							if (dataArray) {
-								const newDataset: InsightDataset = {
-									id: datasetId,
-									kind: kind,
-									numRows: dataArray.length
-								};
-								this.iDatasets.set(datasetId, newDataset);
-							}
-						} else {
-							throw new InsightError("empty data content after crash");
-						}
+						this.datasets.set(datasetId, datasetContent);
+						this.datasets.set(datasetId, datasetContent);
+						// TODO: when crash happens, populate datasets from disk
 					}
 				}
 			}
@@ -82,18 +68,12 @@ export default class InsightFacade implements IInsightFacade {
 
 			if (kind === InsightDatasetKind.Sections) {
 				// Extract and validate content
-				const contentUnzipped = await extractContent(content);
+				const contentUnzipped = await this.extractContent(content);
 
-				// save content
-				this.datasets.set(id, saveContent(id, contentUnzipped));
-
+				// Parse content
+				this.saveContent(id, contentUnzipped);
 			} else {
-				const roomsContent = await processRoomsDataset(content);
-				if (roomsContent) {
-					this.datasets.set(id, roomsContent);
-				} else {
-					throw new InsightError("Invalid content");
-				}
+				const contentUnzipped = await this.processRoomsDataset(content);
 			}
 
 			// return id after dataset successfully added
@@ -118,6 +98,146 @@ export default class InsightFacade implements IInsightFacade {
 		if (this.datasets.has(id)) {
 			throw new InsightError("Dataset id already exist");
 		}
+	}
+
+	private async extractContent(content: string){
+		try {
+			let promises: Array<Promise<string>> = [];
+			let zip = new JSZip();
+			zip = await JSZip.loadAsync(content, {base64: true});
+
+			// for each to iterate through jszip object
+			zip.forEach((relativePath, file) => {
+				if (relativePath.startsWith("courses/")) {
+					if (!relativePath.endsWith("/")){
+						// call await promise.all on array to hold all those promises & push promise onto array
+						// Access the contents of the file and add it to the result array
+						const promiseFile = file.async("string");
+						promises.push(promiseFile);
+					}
+				} else {
+					throw new InsightError("Invalid content (folder not named courses or empty)");
+				}
+			});
+			const courseFiles: string[] = await Promise.all(promises);
+			// console.log(courseFiles);
+			return courseFiles;
+		} catch (error) {
+			throw new InsightError("Invalid content");
+		}
+	}
+
+	private saveContent(id: string, contentUnzipped: string[]){
+		let allSections: Section[] = [];
+
+		for (const str of contentUnzipped){
+			try {
+				// console.log(str);
+				// console.log("inside try");
+				const jsonData = JSON.parse(str);
+				// console.log("inside parse");
+				// console.log(jsonData);
+				const sections: Section[] = jsonData.result.map((course: any) => ({
+					title: course.Title,
+					uuid: course.id,
+					instructor: course.Professor,
+					audit: course.Audit,
+					year: course.Year,
+					id: course.Course,
+					pass: course.Pass,
+					fail: course.Fail,
+					avg: course.Avg,
+					dept: course.Subject
+				}));
+				allSections = allSections.concat(sections);
+			} catch (error) {
+				throw new InsightError("Invalid sections content");
+			}
+		}
+
+		this.datasets.set(id, allSections);
+		const serializedSections = JSON.stringify(allSections);
+		// console.log(serializedSections);
+		if (!fs.existsSync("./data")) {
+			fs.mkdirSync("./data");
+		}
+		fs.writeFileSync("./data/" + id + ".json", serializedSections, "utf-8");
+	}
+
+	private async processRoomsDataset(content: string) {
+		try {
+			let promises: Array<Promise<string>> = [];
+			let zip = new JSZip();
+			zip = await JSZip.loadAsync(content, {base64: true});
+
+			// check index.htm is valid
+			const indexFile = await zip.file("index.htm")?.async("text");
+			if (indexFile) {
+				const indexDocument = parse5.parse(indexFile);
+
+				// Recursively search the node tree for building list table
+				const validTable = this.locateTable(indexDocument);
+				if (validTable) {
+					// TODO:  add rooms
+				} else {
+					throw new Error("index.htm contains no table");
+				}
+			}
+		} catch (error) {
+			throw new InsightError("Invalid rooms content");
+		}
+	}
+
+	private locateTable(node: any): any[] | null {
+		// invalid if index.htm contains no table
+		if (!node) {
+			return null;
+		}
+		// If current node is a table, check if it is the building list table
+		if (node.tagName === "table") {
+			if (this.isValidTable(node)) {
+				return node;
+			}
+		}
+		// If current node has children, search them recursively
+		if (node.childNodes) {
+			for (const child of node.childNodes) {
+				const result = this.locateTable(child);
+				if (result) {
+					return result;
+				}
+			}
+		}
+		return null;
+	}
+
+	// check if node is building list table
+	private isValidTable(node: any): boolean {
+		let theadNode = null;
+		for (const child of node.childNodes) {
+			if (child.tagName === "thead") {
+				theadNode = child;
+				break;
+			}
+		}
+
+		// iterate through each th in the thead to see if it is the building list table
+		for (const trNode of theadNode.childNodes) {
+			if (trNode.tagName === "tr") {
+				for (const thNode of trNode.childNodes) {
+					if (thNode.tagName === "th") {
+						if (thNode.attrs && thNode.attrs.some((attr: {name: string, value: string}) =>
+							attr.name === "class" &&
+							attr.value === "views-field views-field-field-building-image")) {
+							// only return true when spot the building list table column
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		return false;
 	}
 
 	public removeDataset(id: string): Promise<string> {
