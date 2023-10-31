@@ -95,9 +95,9 @@ export class PerformQuery{
 					} else if (conditionKey === "LT" || conditionKey === "GT" || conditionKey === "EQ") {
 						tempResults = this.mComparison(condition, datasetContent);
 					} else if (conditionKey === "IS") {
-						tempResults = this.sComparison(condition[conditionKey], datasetContent);
+						tempResults = this.sComparison(condition, datasetContent);
 					} else if (conditionKey === "NOT") {
-						tempResults = this.negation(condition[conditionKey], datasetContent);
+						tempResults = this.negation(condition, datasetContent);
 					}
 					for (let result of tempResults) {
 						if (!combinedResults.some((combinedResult) =>
@@ -117,6 +117,9 @@ export class PerformQuery{
 		const key: string = keyOriginal.split("_")[1]; // "field"
 		const value: number = m[comparator][keyOriginal];
 		let results: InsightResult[] = datasetContent;
+		if (key === "year" && m[comparator][keyOriginal] === "overall") {
+			m[comparator][keyOriginal] = 1900;
+		}
 
 		switch (comparator) {
 			case "GT":
@@ -135,29 +138,33 @@ export class PerformQuery{
 	}
 
 	private sComparison(s: any, datasetContent: any[]): InsightResult[]{
-		const sKeyOriginal: string = Object.keys(s)[0]; // "id_field"
+		const comparator: string = Object.keys(s)[0]; // "comparator"
+		const sKeyOriginal: string = Object.keys(s[comparator])[0]; // "id_field"
 		const sKey: string = sKeyOriginal.split("_")[1]; // "field"
-		let value: any = s[sKeyOriginal];
+		let value: string = s[comparator][sKeyOriginal]; // "value in field"
 		let results: InsightResult[] = datasetContent;
+		// console.log(comparator);
+		// console.log(sKeyOriginal);
+		// console.log(sKey);
+		// console.log(value);
 
 		if (typeof value === "object" && value !== null) {
 			value = value[Object.keys(value)[0]];
 		}
-
-		if (typeof value !== "string") {
-			console.error("Expected a string but got:", typeof value, value);
-		}
-
-
-		if (value.startsWith("*") === 0 && value.endsWith("*")) {
+		if (value.indexOf("*") === 0 && value.endsWith("*")) {
 			value = value.substring(1, value.length - 1);
-			results = results.filter((section) => (section[sKey] as string).includes(value));
-		} else if (value.startsWith("*") === 0) {
+			// console.log(comparator);
+			// console.log(sKeyOriginal);
+			// console.log(sKey);
+			// console.log(value);
+			results = results.filter((section) => String(section[sKey]).includes(value));
+		} else if (value.indexOf("*") === 0) {
 			value = value.substring(1);
-			results = results.filter((section) => (section[sKey] as string).endsWith(value));
+			results = results.filter((section) => String(section[sKey]).endsWith(value));
 		} else if (value.endsWith("*")) {
 			value = value.substring(0, value.length - 1);
-			results = results.filter((section) => (section[sKey] as string).startsWith(value));
+			results = results.filter((section) => String(section[sKey]).startsWith(value));
+
 		} else {
 			results = results.filter((section) => section[sKey] === value);
 		}

@@ -136,8 +136,12 @@ export default class InsightFacade implements IInsightFacade {
 				// console.log(str);
 				// console.log("inside try");
 				const jsonData = JSON.parse(str);
-				// console.log("inside parse");
 				// console.log(jsonData);
+				// for (let section of jsonData){
+				// 	if(jsonData["Section"] === "overall") {
+				// 		section["year"] = 1900;
+				// 	}
+				// }
 				const sections: Section[] = jsonData.result.map((course: any) => ({
 					title: course.Title,
 					uuid: course.id,
@@ -150,6 +154,14 @@ export default class InsightFacade implements IInsightFacade {
 					avg: course.Avg,
 					dept: course.Subject
 				}));
+
+				// console.log(sections);
+				// if (jsonData["Section"] === "overall") {
+				// 	for (let section of sections) {
+				// 		(section as any)[id + " _ " + "year"] = 1900;
+				// 	}
+				// }
+				console.log();
 				allSections = allSections.concat(sections);
 			} catch (error) {
 				throw new InsightError("Invalid content");
@@ -158,9 +170,11 @@ export default class InsightFacade implements IInsightFacade {
 
 		this.datasets.set(id, allSections);
 		const serializedSections = JSON.stringify(allSections);
-		// console.log(serializedSections);
-		if (!fs.existsSync("./data")) {
-			fs.mkdirSync("./data");
+		console.log(serializedSections);
+		{
+			if (!fs.existsSync("./data")) {
+				fs.mkdirSync("./data");
+			}
 		}
 		fs.writeFileSync("./data/" + id + ".json", serializedSections, "utf-8");
 	}
