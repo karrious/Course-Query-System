@@ -10,6 +10,8 @@ import {
 
 import {extractContent, saveContent} from "./utilities/addSections";
 import {processRoomsDataset} from "./utilities/addRooms";
+import {extractContent, saveContent} from "./utilities/addSections";
+import {processRoomsDataset} from "./utilities/addRooms";
 import {QueryValidator} from "./utilities/QueryValidator";
 import {PerformQuery} from "./utilities/PerformQuery";
 
@@ -86,24 +88,12 @@ export default class InsightFacade implements IInsightFacade {
 				this.datasets.set(id, saveContent(id, contentUnzipped));
 
 			} else {
-				const roomsContent = await processRoomsDataset(content, id);
+				const roomsContent = await processRoomsDataset(content);
 				if (roomsContent) {
 					this.datasets.set(id, roomsContent);
 				} else {
 					throw new InsightError("Invalid content");
 				}
-			}
-
-			const dataArray = this.datasets.get(id);
-			if (dataArray) {
-				const newDataset: InsightDataset = {
-					id: id,
-					kind: kind,
-					numRows: dataArray.length
-				};
-				this.iDatasets.set(newDataset.id, newDataset);
-			} else {
-				throw new InsightError("something weird happened if you see this message");
 			}
 
 			// return id after dataset successfully added
