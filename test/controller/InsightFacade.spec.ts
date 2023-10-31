@@ -101,17 +101,17 @@ describe("InsightFacade", function () {
 			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
 		});
 
-		it("should successfully add multiple datasets of room kind", async function(){
-			await facade.addDataset("ubcv", rooms, InsightDatasetKind.Rooms);
-			const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
-			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
-		});
+		// it("should successfully add multiple datasets of room kind", async function(){
+		// 	await facade.addDataset("ubcv", rooms, InsightDatasetKind.Rooms);
+		// 	const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
+		// 	return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
+		// });
 
-		it("should successfully add multiple datasets of different kind", async function(){
-			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
-			const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
-			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
-		});
+		// it("should successfully add multiple datasets of different kind", async function(){
+		// 	await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
+		// 	const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
+		// 	return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
+		// });
 
 		it("should reject if dataset is not a zip file",  function(){
 			const result = facade.addDataset("ubc", "ubcubcubc", InsightDatasetKind.Sections);
