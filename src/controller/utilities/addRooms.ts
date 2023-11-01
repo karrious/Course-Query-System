@@ -4,7 +4,7 @@ import {InsightError} from "../IInsightFacade";
 
 export async function processRoomsDataset(content: string) {
 	try {
-		let promises: Array<Promise<string>> = [];
+		let buildingList: Map<string, any[]>;
 		let zip = new JSZip();
 		zip = await JSZip.loadAsync(content, {base64: true});
 
@@ -12,16 +12,19 @@ export async function processRoomsDataset(content: string) {
 		const indexFile = await zip.file("index.htm")?.async("text");
 		if (indexFile) {
 			const indexDocument = parse5.parse(indexFile);
-
-			// Recursively search the node tree for building list table
-			const validTable = locateTable(indexDocument);
-			if (validTable) {
-				// TODO:  add rooms
-				return ["edit THIS!"];
+			// recursively search the node tree for building list table
+			const validTbody = locateTable(indexDocument);
+			if (validTbody) {
+                // after finding a valid table, save to buildingList
+				buildingList = getBuildings(validTbody);
 			} else {
-				throw new Error("index.htm contains no table");
+				throw new InsightError("building list table not found");
 			}
+		} else {
+			throw new InsightError("index.htm not valid");
 		}
+
+		const buildingFiles: string[] = await getBuildingFiles(zip, buildingList);
 
 		return null;
 	} catch (error) {
@@ -63,20 +66,60 @@ function isValidTable(node: any): boolean {
 	}
 
 	// iterate through each th in the thead to see if it is the building list table
-	for (const trNode of theadNode.childNodes) {
-		if (trNode.tagName === "tr") {
-			for (const thNode of trNode.childNodes) {
-				if (thNode.tagName === "th") {
-					if (thNode.attrs && thNode.attrs.some((attr: {name: string, value: string}) =>
-						attr.name === "class" &&
-						attr.value === "views-field views-field-field-building-image")) {
-						// only return true when spot the building list table column
-						return true;
-					}
-				}
+	for (const tdNode of trNode.childNodes) {
+		if (tdNode.tagName === "td") {
+			if (tdNode.attrs && tdNode.attrs.some((attr: {name: string, value: string}) =>
+				attr.name === "class" &&
+				attr.value === "views-field views-field-field-building-image")) {
+				return true;
 			}
 		}
 	}
 
 	return false;
+}
+
+function getBuildings(tbody: any){
+	let buildings: Map<string, any[]> = new Map();
+	for (let tr of tbody.childNodes) {
+		if (tr.nodeName === "tr" && tr.childNodes) {
+			const code = getColumnData(tr, "views-field views-field-field-building-code");
+			const name = getColumnData(tr, "views-field views-field-title");
+			const address = getColumnData(tr, "views-field views-field-field-building-address");
+			const link = getColumnData(tr, "views-field views-field-nothing");
+			buildings.set(code, [name, address, link]);
+		}
+	}
+	return buildings;
+}
+
+function getColumnData(tr: any, className: string) {
+	for (let td of tr.childNodes) {
+		if (td.nodeName === "td" && td.attrs[0].name === "class" && td.attrs[0].value.includes(className)) {
+			if (className === "views-field views-field-title") {
+				return td.childNodes[1].childNodes[0].value.trim();
+			} else if (className === "views-field views-field-nothing") {
+				return td.childNodes[1].attrs[0].value.trim();
+			} else {
+				return td.childNodes[0].value.trim();
+			}
+		}
+	}
+}
+
+async function getBuildingFiles(zip: JSZip, buildingList: Map<string, any[]>) {
+	let promises: Array<Promise<string>> = [];
+	// iterate to get promises of all buildings
+	for (let [code, info] of buildingList) {
+		let link = info[2];
+		let buildingFilename = link.split("./").pop();
+		const buildingFile = zip.file(buildingFilename);
+		if (buildingFile) {
+			promises.push(buildingFile.async("text"));
+		} else {
+			throw new InsightError("Building from building list table in index is missing in buildings-and-classrooms");
+		}
+	}
+	const buildingFiles: string[] = await Promise.all(promises);
+	return buildingFiles;
 }
