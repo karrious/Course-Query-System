@@ -80,7 +80,6 @@ export class PerformQuery{
 					} else if (conditionKey === "NOT") {
 						tempResults = this.negation(condition, datasetContent);
 					}
-
 					// Intersect results with tempResults
 					results = results.filter((result) => tempResults.includes(result));
 				}
@@ -105,7 +104,8 @@ export class PerformQuery{
 							combinedResults.push(result);
 						}
 					}
-				} return combinedResults;
+				}
+				return combinedResults;
 			}
 			default: throw new InsightError("Invalid logic operator.");
 		}
