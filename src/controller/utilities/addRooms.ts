@@ -4,7 +4,7 @@ import {InsightError} from "../IInsightFacade";
 
 export async function processRoomsDataset(content: string) {
 	try {
-		let promises: Array<Promise<string>> = [];
+		let buildingList: Map<string, any[]>;
 		let zip = new JSZip();
 		zip = await JSZip.loadAsync(content, {base64: true});
 
@@ -12,18 +12,20 @@ export async function processRoomsDataset(content: string) {
 		const indexFile = await zip.file("index.htm")?.async("text");
 		if (indexFile) {
 			const indexDocument = parse5.parse(indexFile);
-
 			// recursively search the node tree for building list table
-			const validTtbody = locateTable(indexDocument);
-
-			// after finding a valid table, save to buildingList
-			if (validTtbody) {
-				const buildingList = getBuildings(validTtbody);
-				return ["edit THIS!"];	// TODO:  add rooms
+			const validTbody = locateTable(indexDocument);
+			if (validTbody) {
+                // after finding a valid table, save to buildingList
+				buildingList = getBuildings(validTbody);
 			} else {
-				throw new Error("index.htm contains no table");
+				throw new InsightError("building list table not found");
 			}
+		} else {
+			throw new InsightError("index.htm not valid");
 		}
+
+		const buildingFiles: string[] = await getBuildingFiles(zip, buildingList);
+
 		return null;
 	} catch (error) {
 		throw new InsightError("Invalid rooms content");
@@ -69,7 +71,6 @@ function isValidTable(node: any): boolean {
 			if (tdNode.attrs && tdNode.attrs.some((attr: {name: string, value: string}) =>
 				attr.name === "class" &&
 				attr.value === "views-field views-field-field-building-image")) {
-				// only return true when spot the building list table column
 				return true;
 			}
 		}
@@ -104,4 +105,21 @@ function getColumnData(tr: any, className: string) {
 			}
 		}
 	}
+}
+
+async function getBuildingFiles(zip: JSZip, buildingList: Map<string, any[]>) {
+	let promises: Array<Promise<string>> = [];
+	// iterate to get promises of all buildings
+	for (let [code, info] of buildingList) {
+		let link = info[2];
+		let buildingFilename = link.split("./").pop();
+		const buildingFile = zip.file(buildingFilename);
+		if (buildingFile) {
+			promises.push(buildingFile.async("text"));
+		} else {
+			throw new InsightError("Building from building list table in index is missing in buildings-and-classrooms");
+		}
+	}
+	const buildingFiles: string[] = await Promise.all(promises);
+	return buildingFiles;
 }
