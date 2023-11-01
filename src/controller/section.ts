@@ -3,7 +3,7 @@ export interface Section {
 	id: number;
 	Professor: string;
 	Audit: number;
-	Year: string;
+	Year: number;
 	Course: string;
 	Pass: number;
 	Fail: number;
