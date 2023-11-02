@@ -70,7 +70,7 @@ export default class InsightFacade implements IInsightFacade {
 				this.datasets.set(id, saveContent(id, contentUnzipped));
 
 			} else {
-				const roomsContent = await processRoomsDataset(content);
+				const roomsContent = await processRoomsDataset(content, id);
 				if (roomsContent) {
 					this.datasets.set(id, roomsContent);
 				} else {
