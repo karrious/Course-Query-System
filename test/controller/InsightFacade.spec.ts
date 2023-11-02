@@ -4,7 +4,7 @@ import {
 	InsightError,
 	InsightResult,
 	ResultTooLargeError,
-	NotFoundErrorf
+	NotFoundError
 } from "../../src/controller/IInsightFacade";
 import InsightFacade from "../../src/controller/InsightFacade";
 
