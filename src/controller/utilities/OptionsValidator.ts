@@ -12,7 +12,7 @@ export class OptionsValidator {
 			throw new InsightError("OPTIONS missing COLUMNS");
 		}
 
-		// make sure nothing weird is in the mix of COLUMNS and ORDER
+		// make sure nothing weird is in the mix of COLUMNS and ORDER.
 		for (let key of keys) {
 			if (key !== "COLUMNS" && key !== "ORDER") {
 				throw new InsightError("Invalid keys in OPTIONS");
