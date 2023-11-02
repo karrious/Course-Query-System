@@ -4,7 +4,7 @@ import {
 	InsightError,
 	InsightResult,
 	ResultTooLargeError,
-	NotFoundError
+	NotFoundErrorf
 } from "../../src/controller/IInsightFacade";
 import InsightFacade from "../../src/controller/InsightFacade";
 
@@ -79,10 +79,11 @@ describe("InsightFacade", function () {
 			return expect(result).to.eventually.be.rejectedWith(InsightError);
 		});
 
+		// times out here
 		it ("should successfully add a dataset", function() {
 			sectionsL = getContentFromArchives("pair.zip");
 			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
-			return expect(result).to.eventually.deep.equal(["ubc"]);
+			return expect(result).to.eventually.be.deep.equal(["ubc"]);
 		});
 		// zoo++ is 2 empty + 1 non empty of 10
 		// pairS is of 1500+ files, smaller version of pair
@@ -91,7 +92,7 @@ describe("InsightFacade", function () {
 		it("should successfully add multiple datasets", async function(){
 			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
 			const result2 =  facade.addDataset("ubco", sections, InsightDatasetKind.Sections);
-			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
+			return expect(result2).to.eventually.be.deep.equal(["ubcv", "ubco"]);
 		});
 
 		it("should reject with rooms kind",  function(){

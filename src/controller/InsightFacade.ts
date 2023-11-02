@@ -75,7 +75,7 @@ export default class InsightFacade implements IInsightFacade {
 		}
 	}
 
-	private async extractContent(content: string){
+	private async extractContent(content: string): Promise<string[]> {
 		try {
 			let promises: Array<Promise<string>> = [];
 			let zip = new JSZip();
@@ -135,7 +135,7 @@ export default class InsightFacade implements IInsightFacade {
 				// 		(section as any)[id + " _ " + "year"] = 1900;
 				// 	}
 				// }
-				console.log();
+				// console.log();
 				allSections = allSections.concat(sections);
 			} catch (error) {
 				throw new InsightError("Invalid content");
@@ -144,11 +144,9 @@ export default class InsightFacade implements IInsightFacade {
 
 		this.datasets.set(id, allSections);
 		const serializedSections = JSON.stringify(allSections);
-		console.log(serializedSections);
-		{
-			if (!fs.existsSync("./data")) {
-				fs.mkdirSync("./data");
-			}
+		// console.log(serializedSections);
+		if (!fs.existsSync("./data")) {
+			fs.mkdirSync("./data");
 		}
 		fs.writeFileSync("./data/" + id + ".json", serializedSections, "utf-8");
 	}
