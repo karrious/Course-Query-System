@@ -30,7 +30,7 @@ export default class InsightFacade implements IInsightFacade {
 		this.iDatasets = new Map();
 
 		// crash handling
-		this.crash();
+		// this.crash();
 	}
 
 	// crash handling
@@ -77,6 +77,18 @@ export default class InsightFacade implements IInsightFacade {
 				} else {
 					throw new InsightError("Invalid content");
 				}
+			}
+
+			const dataArray = this.datasets.get(id);
+			if (dataArray) {
+				const newDataset: InsightDataset = {
+					id: id,
+					kind: kind,
+					numRows: dataArray.length
+				};
+				this.iDatasets.set(newDataset.id, newDataset);
+			} else {
+				throw new InsightError("something weird happened if you see this message");
 			}
 
 			// return id after dataset successfully added
@@ -148,13 +160,7 @@ export default class InsightFacade implements IInsightFacade {
 		let datasetList: InsightDataset[] = [];
 		// let totalRows = 0;
 
-		for (let [key, value] of this.datasets) {
-			// totalRows += value.length;
-			const dataset: InsightDataset = {
-				id: key,
-				kind: InsightDatasetKind.Sections,
-				numRows: value.length
-			};
+		for (let [key, dataset] of this.iDatasets) {
 			datasetList.push(dataset);
 		}
 		console.log(datasetList);
