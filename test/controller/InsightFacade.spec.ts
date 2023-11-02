@@ -22,6 +22,7 @@
 // 	// Declare datasets used in tests. You should add more datasets like this!
 // 	let sections: string;
 // 	let sectionsL: string;
+// 	let rooms: string;
 //
 // 	before(function () {
 // 		// This block runs once and loads the datasets.
@@ -35,6 +36,7 @@
 // 		before(function () {
 // 			// Using a smaller dataset to decrease run time
 // 			sections = getContentFromArchives("pair1.zip");
+// 			rooms = getContentFromArchives("campus.zip");
 // 			console.info(`Before: ${this.test?.parent?.title}`);
 // 		});
 //
@@ -79,25 +81,37 @@
 // 			return expect(result).to.eventually.be.rejectedWith(InsightError);
 // 		});
 //
-// 		// times out here
-// 		it ("should successfully add a dataset", function() {
+
+// 		it ("should successfully add a sections kind dataset", function() {
 // 			sectionsL = getContentFromArchives("pair.zip");
 // 			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
-// 			return expect(result).to.eventually.be.deep.equal(["ubc"]);
+// 			return expect(result).to.eventually.deep.equal(["ubc"]);
 // 		});
 // 		// zoo++ is 2 empty + 1 non empty of 10
 // 		// pairS is of 1500+ files, smaller version of pair
 // 		// pairM is of 3500+ files
 //
-// 		it("should successfully add multiple datasets", async function(){
-// 			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
-// 			const result2 =  facade.addDataset("ubco", sections, InsightDatasetKind.Sections);
-// 			return expect(result2).to.eventually.be.deep.equal(["ubcv", "ubco"]);
+// 		it ("should successfully add a rooms kind dataset", function() {
+// 			const result = facade.addDataset("ubc", rooms, InsightDatasetKind.Rooms);
+// 			return expect(result).to.eventually.deep.equal(["ubc"]);
 // 		});
 //
-// 		it("should reject with rooms kind",  function(){
-// 			const result = facade.addDataset("ubc", sections, InsightDatasetKind.Rooms);
-// 			return expect(result).to.eventually.be.rejectedWith(InsightError);
+// 		it("should successfully add multiple datasets of section kind", async function(){
+// 			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
+// 			const result2 =  facade.addDataset("ubco", sections, InsightDatasetKind.Sections);
+// 			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
+// 		});
+//
+// 		it("should successfully add multiple datasets of room kind", async function(){
+// 			await facade.addDataset("ubcv", rooms, InsightDatasetKind.Rooms);
+// 			const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
+// 			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
+// 		});
+//
+// 		it("should successfully add multiple datasets of different kind", async function(){
+// 			await facade.addDataset("ubcv", sections, InsightDatasetKind.Sections);
+// 			const result2 =  facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
+// 			return expect(result2).to.eventually.deep.equal(["ubcv", "ubco"]);
 // 		});
 //
 // 		it("should reject if dataset is not a zip file",  function(){
@@ -180,26 +194,35 @@
 // 		});
 //
 // 		it("Can successfully list a larger added dataset", async function(){
-// 			sectionsL = getContentFromArchives("zoo++.zip");
+// 			sectionsL = getContentFromArchives("pair.zip");
 // 			await facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
 // 			const result = facade.listDatasets();
 // 			return expect(result).to.eventually.deep.equal([{
 // 				id: "ubc",
 // 				kind: InsightDatasetKind.Sections,
-// 				numRows: 10}]);
+// 				numRows: 64612}]);
+// 		});
+//
+// 		it("Can successfully list room kind dataset", async function(){
+// 			await facade.addDataset("ubc", rooms, InsightDatasetKind.Rooms);
+// 			const result = facade.listDatasets();
+// 			return expect(result).to.eventually.deep.equal([{
+// 				id: "ubc",
+// 				kind: InsightDatasetKind.Rooms,
+// 				numRows: 364}]);
 // 		});
 //
 // 		it("Can successfully list all added datasets", async function(){
 // 			sectionsL = getContentFromArchives("pair.zip");
-// 			await facade.addDataset("ubco", sections, InsightDatasetKind.Sections);
+// 			await facade.addDataset("ubco", rooms, InsightDatasetKind.Rooms);
 // 			await facade.addDataset("ubcv", sectionsL, InsightDatasetKind.Sections);
 // 			const result = await facade.listDatasets();
 // 			expect(result).to.have.length(2);
 // 			return expect(result).to.have.deep.members([
 // 				{
 // 					id: "ubco",
-// 					kind: InsightDatasetKind.Sections,
-// 					numRows: 16,
+// 					kind: InsightDatasetKind.Rooms,
+// 					numRows: 364,
 // 				},
 // 				{
 // 					id: "ubcv",
