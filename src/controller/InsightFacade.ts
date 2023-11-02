@@ -138,8 +138,8 @@ export default class InsightFacade implements IInsightFacade {
 				const jsonData = JSON.parse(str);
 				// console.log(jsonData);
 				// for (let section of jsonData){
-				// 	if(jsonData["Section"] === "overall") {
-				// 		section["year"] = 1900;
+				// 	if (jsonData["Section"] === "overall") {
+				// 		section["Year"] = 1900;
 				// 	}
 				// }
 				const sections: Section[] = jsonData.result.map((course: any) => ({
