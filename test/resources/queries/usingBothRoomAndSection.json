@@ -1,0 +1,23 @@
+{
+	"title": "using both room and section",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_fullname",
+				"sections_uuid",
+				"rooms_number",
+				"rooms_name",
+				"rooms_address",
+				"rooms_lat",
+				"rooms_lon",
+				"rooms_seats",
+				"rooms_type",
+				"rooms_furniture",
+				"rooms_href"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
