@@ -27,7 +27,12 @@ export class QueryValidator{
 				}
 			}
 			// Todo: optionsValidator pass in validColumns and check in columns, actually write new options.
-			const validColumns: string[] = transformationsValidator.transformationsValidator(query["TRANSFORMATIONS"]);
+			let validColumns: string[] = [];
+			if (query["TRANSFORMATIONS"]) {
+				validColumns = transformationsValidator.transformationsValidator(query["TRANSFORMATIONS"]);
+			} else {
+				validColumns = query["OPTIONS"]["COLUMNS"];
+			}
 			const id = optionsValidator.optionsValidator(query["OPTIONS"], validColumns);
 			this.whereValidator(query["WHERE"], id);
 			return id;

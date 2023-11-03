@@ -60,11 +60,12 @@ export class OptionsValidator {
 			}
 		} else if ((order["dir"] !== "UP" && order["dir"] !== "DOWN") || order["keys"] === undefined) {
 			throw new InsightError("Missing or wrong dir or keys in ORDER");
-		}
-		let orderKeys = order["keys"];
-		for (let orderKey of orderKeys) {
-			if (!validColumns.includes(orderKey)) {
-				throw new InsightError("Key in order not present in anykey");
+		} else {
+			let orderKeys = order["keys"];
+			for (let orderKey of orderKeys) {
+				if (!validColumns.includes(orderKey)) {
+					throw new InsightError("Key in order not present in anykey");
+				}
 			}
 		}
 	}
