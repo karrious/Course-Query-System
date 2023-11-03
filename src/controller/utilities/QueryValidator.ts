@@ -7,6 +7,12 @@ export class QueryValidator{
 	private sfields: string[] = ["dept", "id", "instructor", "title", "uuid", "fullname", "shortname", "number","name",
 		"address", "type", "furniture", "href"];
 
+	private sectionFields: string[] = ["avg", "pass", "fail", "audit", "year", "dept", "id", "instructor",
+		"title", "uuid"];
+
+	private roomFields: string[] = ["lat", "lon", "seats", "fullname", "shortname", "number","name", "address",
+		"type", "furniture", "href"];
+
 	public queryValidator(query: any) {
 		try {
 			const keys = Object.keys(query);
@@ -33,7 +39,9 @@ export class QueryValidator{
 			} else {
 				validColumns = query["OPTIONS"]["COLUMNS"];
 			}
+
 			const id = optionsValidator.optionsValidator(query["OPTIONS"], validColumns);
+			this.ensureFieldsBelongToSingleDataset(validColumns);
 			this.whereValidator(query["WHERE"], id);
 			return id;
 		} catch (error) {
@@ -151,4 +159,18 @@ export class QueryValidator{
 		}
 		return fields.includes(parts[1]);
 	}
+
+	private ensureFieldsBelongToSingleDataset(fields: string[]): void {
+		let fieldsWithUnderscore: string[] = fields.filter((field) => field.includes("_"));
+		let vfields: string[] = fieldsWithUnderscore.map((field) => field.split("_").pop() as string);
+
+		const belongToRooms = vfields.every((field) => this.sectionFields.includes(field));
+		const belongToSections = vfields.every((field) => this.roomFields.includes(field));
+
+		// If both are true or both are false
+		if (belongToRooms === belongToSections) {
+			throw new InsightError("Fields do not belong to a single dataset");
+		}
+	}
+
 }

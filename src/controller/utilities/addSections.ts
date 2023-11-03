@@ -44,7 +44,7 @@ export function saveContent(id: string, contentUnzipped: string[]): Section[]{
 					uuid: course.id,
 					instructor: course.Professor,
 					audit: course.Audit,
-					year: yearValue,
+					year: Number(yearValue),
 					id: course.Course,
 					pass: course.Pass,
 					fail: course.Fail,
