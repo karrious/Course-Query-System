@@ -35,23 +35,23 @@ export function saveContent(id: string, contentUnzipped: string[]): Section[]{
 
 	for (const str of contentUnzipped){
 		try {
-			// console.log(str);
-			// console.log("inside try");
 			const jsonData = JSON.parse(str);
-			// console.log("inside parse");
-			// console.log(jsonData);
-			const sections: Section[] = jsonData.result.map((course: any) => ({
-				title: course.Title,
-				uuid: course.id,
-				instructor: course.Professor,
-				audit: course.Audit,
-				year: course.Year,
-				id: course.Course,
-				pass: course.Pass,
-				fail: course.Fail,
-				avg: course.Avg,
-				dept: course.Subject
-			}));
+			const sections: Section[] = jsonData.result.map((course: any) => {
+				let yearValue = (course.Section && course.Section === "overall") ? 1900 : course.Year;
+
+				return {
+					title: course.Title,
+					uuid: course.id,
+					instructor: course.Professor,
+					audit: course.Audit,
+					year: yearValue,
+					id: course.Course,
+					pass: course.Pass,
+					fail: course.Fail,
+					avg: course.Avg,
+					dept: course.Subject
+				};
+			});
 			allSections = allSections.concat(sections);
 		} catch (error) {
 			throw new InsightError("Invalid sections content");
