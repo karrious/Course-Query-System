@@ -1,46 +1,50 @@
 import {InsightError, InsightResult, ResultTooLargeError} from "../IInsightFacade";
+import {PerformTransformations} from "./PerformTransformations";
+import {TransformationsValidator} from "./TransformationsValidator";
 
 export class PerformQuery{
 	public insightResult: InsightResult[] = [];
 
+	private mfields: string[] = ["avg", "pass", "fail", "audit", "year", "lat", "lon", "seats"];
+	private sfields: string[] = ["dept", "id", "instructor", "title", "uuid", "fullname", "shortname", "number", "name",
+		"address", "type", "furniture", "href"];
+
 	public performQueryHelper(query: any, datasetContent: any[], id: string): InsightResult[]{
+		const performTransformations = new PerformTransformations();
 		try {
 			this.insightResult = datasetContent;
 			let filterKey = Object.keys(query["WHERE"])[0];
-			if (filterKey === "AND" || filterKey === "OR"){
-				this.insightResult = this.logicComparison(query["WHERE"], datasetContent);
-			} else if (filterKey === "LT" || filterKey === "GT" || filterKey === "EQ"){
-				this.insightResult = this.mComparison(query["WHERE"], datasetContent);
-			} else if (filterKey === "IS"){
-				this.insightResult = this.sComparison(query["WHERE"][filterKey], datasetContent);
-			} else if (filterKey === "NOT"){
-				this.insightResult = this.negation(query["WHERE"][filterKey], datasetContent);
+			this.insightResult = this.filterFunction(filterKey, query, datasetContent);
+			if (query["TRANSFORMATIONS"]){
+				this.insightResult = performTransformations.performTransformations(this.insightResult,
+					query["TRANSFORMATIONS"]);
 			}
-
 			if (this.insightResult.length > 5000) {
 				throw new ResultTooLargeError("The result is too large.");
 			}
-
 			const columnsOriginal = query["OPTIONS"]["COLUMNS"];
 			const order = query["OPTIONS"]["ORDER"];
 			let columns: string[] = [];
 			for (const col of columnsOriginal) {
-				columns.push(this.splitField(col));
+				if (col.includes("_")) {
+					columns.push(this.splitField(col));
+				} else {
+					columns.push(col);
+				}
 			}
 			let optionsResult = this.insightResult.map((result) => {
 				let columnResult: InsightResult = {};
 				for (let column of columns){
-					if (column === "year") {
-						columnResult[id + "_" + column] = Number(result[column]);
-					} else if (column === "uuid") {
+					if (column === "uuid") {
 						columnResult[id + "_" + column] = String(result[column]);
-					} else {
+					} else if (this.sfields.includes(column) || this.mfields.includes(column)){
 						columnResult[id + "_" + column] = result[column];
+					} else {
+						columnResult[column] = result[column];
 					}
 				}
 				return columnResult;
 			});
-
 			const keys = Object.keys(query["OPTIONS"]);
 			if (keys.includes("ORDER")) {
 				this.insightResult = this.orderQuery(optionsResult, order);
@@ -52,6 +56,19 @@ export class PerformQuery{
 			console.error(error);
 			throw error;
 		}
+	}
+
+	private filterFunction(filterKey: string,  query: any, datasetContent: any[]) {
+		if (filterKey === "AND" || filterKey === "OR"){
+			this.insightResult = this.logicComparison(query["WHERE"], datasetContent);
+		} else if (filterKey === "LT" || filterKey === "GT" || filterKey === "EQ"){
+			this.insightResult = this.mComparison(query["WHERE"], datasetContent);
+		} else if (filterKey === "IS"){
+			this.insightResult = this.sComparison(query["WHERE"][filterKey], datasetContent);
+		} else if (filterKey === "NOT"){
+			this.insightResult = this.negation(query["WHERE"][filterKey], datasetContent);
+		}
+		return this.insightResult;
 	}
 
 	private splitField (column: string): string {
@@ -193,20 +210,28 @@ export class PerformQuery{
 		return results;
 	}
 
-	private orderQuery(orderDataset: InsightResult[], order: string): InsightResult[]{
-		if (!order || order.length === 0) {
-			return orderDataset;
+	private orderQuery(orderDataset: InsightResult[], order: any): InsightResult[]{
+		if (typeof order === "string") {
+			// const upDirection = 1;
+			return orderDataset.sort((a, b) => (a[order] > b[order]) ? 1 : -1
+			);
+		} else if (typeof order === "object") {
+			const upDirection = order["dir"] === "UP" ? 1 : -1;
+			const keys: string[] = order["keys"];
+			return orderDataset.sort((a, b) => {
+				for (const key of keys) {
+					if (a[key] > b[key]) {
+						return upDirection;
+					}
+					if (a[key] < b[key]) {
+						return -upDirection;
+					}
+				}
+				return 0;
+			});
+		} else {
+			throw new InsightError("Invalid ORDER format");
 		}
-		return orderDataset.sort((a: any, b: any) => {
-			let aValue = a[order];
-			let bValue = b[order];
-			if (typeof aValue === "number" && typeof bValue === "number") {
-				return (aValue - bValue);
-			} else if (typeof aValue === "string" && typeof bValue === "string") {
-				return aValue.localeCompare(bValue);
-			}
-			throw new InsightError("Wrong type for order key.");
-		});
 	}
 }
 
