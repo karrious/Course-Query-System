@@ -1,5 +1,4 @@
 import * as fs from "fs";
-import JSZip from "jszip";
 import {
 	IInsightFacade,
 	InsightDataset,
@@ -8,8 +7,6 @@ import {
 	InsightResult,
 	NotFoundError
 } from "./IInsightFacade";
-import {Section} from "./section";
-import * as parse5 from "parse5";
 
 import {extractContent, saveContent} from "./utilities/addSections";
 import {processRoomsDataset} from "./utilities/addRooms";
@@ -30,7 +27,7 @@ export default class InsightFacade implements IInsightFacade {
 		this.iDatasets = new Map();
 
 		// crash handling
-		// this.crash();
+		this.crash();
 	}
 
 	// crash handling
@@ -46,9 +43,27 @@ export default class InsightFacade implements IInsightFacade {
 					if (!this.datasets.has(datasetId)) {
 						const fileContent = fs.readFileSync("./data/" + datasetId + ".json", "utf-8");
 						const datasetContent = JSON.parse(fileContent);
-						this.datasets.set(datasetId, datasetContent);
-						this.datasets.set(datasetId, datasetContent);
-						// TODO: when crash happens, populate datasets from disk
+
+						if (datasetContent.length > 0) {
+							this.datasets.set(datasetId, datasetContent);
+
+							let kind: InsightDatasetKind = InsightDatasetKind.Sections;
+							if ("fullname" in datasetContent[0]) {
+								kind = InsightDatasetKind.Rooms;
+							}
+
+							const dataArray = this.datasets.get(datasetId);
+							if (dataArray) {
+								const newDataset: InsightDataset = {
+									id: datasetId,
+									kind: kind,
+									numRows: dataArray.length
+								};
+								this.iDatasets.set(datasetId, newDataset);
+							}
+						} else {
+							throw new InsightError("empty data content after crash");
+						}
 					}
 				}
 			}

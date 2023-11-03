@@ -178,17 +178,17 @@ function getRooms(tbody: any, building: [string, any[]]) {
 			const href = getColumnData(tr, "views-field views-field-nothing");
 
 			const room: Room = {
-				Fullname: building[1][0],
-				Shortname: building[0],
-				Number: number,
-				Name: building[0] + "_" + number,
-				Address: building[1][1],
-				Lat: building[1][3],
-				Lon: building[1][4],
-				Seats: seats,
-				Type: type,
-				Furniture: furniture,
-				Href: href
+				fullname: building[1][0],
+				shortname: building[0],
+				number: number,
+				name: building[0] + "_" + number,
+				address: building[1][1],
+				lat: building[1][3],
+				lon: building[1][4],
+				seats: seats,
+				type: type,
+				furniture: furniture,
+				href: href
 			};
 			rooms.push(room);
 		}

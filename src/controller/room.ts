@@ -1,13 +1,13 @@
 export interface Room {
-	Fullname: string;
-	Shortname: string;
-	Number: string;
-	Name: string;
-	Address: string;
-	Lat: number;
-	Lon: number;
-	Seats: number;
-	Type: string;
-	Furniture: string;
-	Href: string;
+	fullname: string;
+	shortname: string;
+	number: string;
+	name: string;
+	address: string;
+	lat: number;
+	lon: number;
+	seats: number;
+	type: string;
+	furniture: string;
+	href: string;
 }
