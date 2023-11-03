@@ -9,4 +9,5 @@ export interface Section {
 	Fail: number;
 	Avg: number;
 	Subject: string;
+	Section?: string;
 }
