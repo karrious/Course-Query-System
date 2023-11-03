@@ -81,6 +81,7 @@
 // 			return expect(result).to.eventually.be.rejectedWith(InsightError);
 // 		});
 //
+
 // 		it ("should successfully add a sections kind dataset", function() {
 // 			sectionsL = getContentFromArchives("pair.zip");
 // 			const result = facade.addDataset("ubc", sectionsL, InsightDatasetKind.Sections);
