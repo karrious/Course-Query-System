@@ -20,50 +20,19 @@ export class PerformTransformations {
 
 	private performGroup(groupKeys: string[], datasetContent: InsightResult[]): InsightResult[][] {
 		let groupResults: InsightResult[][] = [];
-		let newDatasetContent = datasetContent;
-		while (newDatasetContent.length > 0) {
-			let currentContent = newDatasetContent[0];
-			let matchingGroup: InsightResult[] = [];
-			let nonMatchingGroup: InsightResult[] = [];
-
-			for (let item of newDatasetContent) {
-				let isMatch = true;
-				for (let key of groupKeys) {
-					let key2 = key.split("_")[1];
-					if (item[key2] !== currentContent[key2]) {
-						isMatch = false;
-						break;
-					}
-				}
-				if (isMatch) {
-					matchingGroup.push(item);
-				} else {
-					nonMatchingGroup.push(item);
-				}
+		let groupMap: {[key: string]: InsightResult[]} = {};
+		for (let item of datasetContent) {
+			let computedKey = groupKeys.map((key) => {
+				let key2 = key.split("_")[1];
+				return item[key2];
+			}).join("|");
+			if (!groupMap[computedKey]) {
+				groupMap[computedKey] = [];
 			}
-			// let matchingGroup = newDatasetContent.filter((item) => {
-			// 	return groupKeys.every((key) => {
-			// 		let key2 = key.split("_")[1];
-			// 		return item[key2] === currentContent[key2];
-			// 	});
-			// });
-			//
-			// let nonMatchingGroup = newDatasetContent.filter((item) => {
-			// 	return !groupKeys.every((key) => {
-			// 		let key2 = key.split("_")[1];
-			// 		return item[key2] === currentContent[key2];
-			// 	});
-			// });
-
-
-			if (matchingGroup.length >= 1) {
-				groupResults.push(matchingGroup);
-			}
-
-			newDatasetContent = nonMatchingGroup; // Continue with the items that didn't match
+			groupMap[computedKey].push(item);
 		}
+		groupResults = Object.values(groupMap);
 		return groupResults;
-		// }
 	}
 
 	private performApply(applyRules: string[], groupResults: InsightResult[][]): InsightResult[] {
