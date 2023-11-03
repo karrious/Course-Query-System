@@ -1,12 +1,17 @@
 import {InsightError} from "../IInsightFacade";
+import {TransformationsValidator} from "./TransformationsValidator";
+import {OptionsValidator} from "./OptionsValidator";
 
 export class QueryValidator{
-	private mfields: string[] = ["avg", "pass", "fail", "audit", "year"];
-	private sfields: string[] = ["dept", "id", "instructor", "title", "uuid"];
+	private mfields: string[] = ["avg", "pass", "fail", "audit", "year", "lat", "lon", "seats"];
+	private sfields: string[] = ["dept", "id", "instructor", "title", "uuid", "fullname", "shortname", "number","name",
+		"address", "type", "furniture", "href"];
 
 	public queryValidator(query: any) {
 		try {
 			const keys = Object.keys(query);
+			const transformationsValidator = new TransformationsValidator();
+			const optionsValidator = new OptionsValidator();
 
 			// make sure both WHERE and OPTIONS exist
 			if (!keys.includes("WHERE") || !keys.includes("OPTIONS")) {
@@ -17,12 +22,13 @@ export class QueryValidator{
 
 			// make sure nothing weird is in the mix
 			for (let key of keys) {
-				if (key !== "WHERE" && key !== "OPTIONS") {
+				if (key !== "WHERE" && key !== "OPTIONS" && key !== "TRANSFORMATIONS") {
 					throw new InsightError("Excess keys in query");
 				}
 			}
-
-			const id = this.optionsValidator(query["OPTIONS"]);
+			// Todo: optionsValidator pass in validColumns and check in columns, actually write new options.
+			const validColumns: string[] = transformationsValidator.transformationsValidator(query["TRANSFORMATIONS"]);
+			const id = optionsValidator.optionsValidator(query["OPTIONS"], validColumns);
 			this.whereValidator(query["WHERE"], id);
 			return id;
 		} catch (error) {
@@ -133,76 +139,11 @@ export class QueryValidator{
 		return this.whereValidator(negation, id);
 	}
 
-	private optionsValidator(options: any): string {
-		try{
-			const keys = Object.keys(options);
-			// make sure COLUMNS exist
-			if (!keys.includes("COLUMNS")) {
-				throw new InsightError("OPTIONS missing COLUMNS");
-			}
-
-			// make sure nothing weird is in the mix of COLUMNS and ORDER
-			for (let key of keys) {
-				if (key !== "COLUMNS" && key !== "ORDER") {
-					throw new InsightError("Invalid keys in OPTIONS");
-				}
-			}
-
-			// make sure COLUMNS is an array and has at least one value
-			if (!Array.isArray(options.COLUMNS) || options.COLUMNS.length === 0) {
-				throw new InsightError("COLUMNS must be a non-empty array");
-			}
-
-			const id = this.getIdFromOptions(options);
-			const validColumns: string[] = this.columnsValidator(options.COLUMNS, id);
-			// ORDER is optional, it can exist or not exist
-			if (options.ORDER){
-				if (typeof options.ORDER !== "string") {
-					throw new InsightError("Invalid ORDER type");
-				}
-				this.validateOrder(options.ORDER, validColumns, id);
-			}
-
-			return id;
-		} catch (error){
-			throw new InsightError("Incorrect format of OPTIONS");
-		}
-	}
-
-	private getIdFromOptions(options: any): string {
-		const columns = options.COLUMNS;
-		const firstColumn = columns[0];
-		if (typeof firstColumn === "string" && firstColumn.includes("_")) {
-			return firstColumn.split("_")[0];  // Split the string and get the id
-		}
-		throw new InsightError("Invalid dataset id");
-	}
-
-	private columnsValidator(columns: any[], id: string): string[] {
-		for (let column of columns) {
-			if (typeof column !== "string") {
-				throw new InsightError("Invalid type of COLUMN key");
-			}
-			if(!this.fieldValidator(column, id, this.mfields) && !this.fieldValidator(column, id, this.sfields)) {
-				throw new InsightError("Invalid COLUMNS field");
-			}
-		}
-		return columns;
-	}
-
-	// pass in "id_field", id, and type of field
-	// check if "id_field" is valid
 	private fieldValidator(field: string, id: string, fields: string[]): boolean {
 		const parts = field.split("_");
 		if (parts.length !== 2 || parts[0] !== id || !fields.includes(parts[1])) {
 			return false;
 		}
 		return fields.includes(parts[1]);
-	}
-
-	private validateOrder(order: string, validColumns: string[], id: string) {
-		if (typeof order !== "string" || !validColumns.includes(order)) {
-			throw new InsightError("Wrong order or order not included in columns");
-		}
 	}
 }
