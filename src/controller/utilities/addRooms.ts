@@ -185,7 +185,7 @@ function getRooms(tbody: any, building: [string, any[]]) {
 				address: building[1][1],
 				lat: building[1][3],
 				lon: building[1][4],
-				seats: seats,
+				seats: Number(seats),
 				type: type,
 				furniture: furniture,
 				href: href

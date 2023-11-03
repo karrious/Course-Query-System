@@ -1,28 +1,28 @@
-// import {
-// 	IInsightFacade,
-// 	InsightDatasetKind,
-// 	InsightError,
-// 	InsightResult,
-// 	ResultTooLargeError,
-// 	NotFoundError
-// } from "../../src/controller/IInsightFacade";
-// import InsightFacade from "../../src/controller/InsightFacade";
-//
-// import {folderTest} from "@ubccpsc310/folder-test";
-// import {expect, use} from "chai";
-// import chaiAsPromised from "chai-as-promised";
-// import {clearDisk, getContentFromArchives} from "../TestUtil";
-//
-// use(chaiAsPromised);
-//
-// describe("InsightFacade", function () {
-// 	this.timeout(100000); // 100 seconds
-// 	let facade: IInsightFacade;
-// 	//
+import {
+	IInsightFacade,
+	InsightDatasetKind,
+	InsightError,
+	InsightResult,
+	ResultTooLargeError,
+	NotFoundError
+} from "../../src/controller/IInsightFacade";
+import InsightFacade from "../../src/controller/InsightFacade";
+
+import {folderTest} from "@ubccpsc310/folder-test";
+import {expect, use} from "chai";
+import chaiAsPromised from "chai-as-promised";
+import {clearDisk, getContentFromArchives} from "../TestUtil";
+
+use(chaiAsPromised);
+
+describe("InsightFacade", function () {
+	this.timeout(100000); // 100 seconds
+	let facade: IInsightFacade;
+	//
 // 	// // Declare datasets used in tests. You should add more datasets like this!
-// 	let sections: string;
-// 	let sectionsL: string;
-// 	let rooms: string;
+	let sections: string;
+	let sectionsL: string;
+	let rooms: string;
 //
 // 	before(function () {
 // 		// This block runs once and loads the datasets.
@@ -238,50 +238,52 @@
 // 	 * You should not need to modify it; instead, add additional files to the queries directory.
 // 	 * You can still make tests the normal way, this is just a convenient tool for a majority of queries.
 // 	 */
-// 	describe("PerformQuery", () => {
-// 		before(function () {
-// 			console.info(`Before: ${this.test?.parent?.title}`);
-//
-// 			facade = new InsightFacade();
-//
-// 			sections = getContentFromArchives("pair.zip");
-// 			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
-// 			// Will *fail* if there is a problem reading ANY dataset.
-// 			const loadDatasetPromises = [
-// 				facade.addDataset("sections", sections, InsightDatasetKind.Sections),
-// 			];
-//
-// 			return Promise.all(loadDatasetPromises);
-// 		});
-//
-// 		after(function () {
-// 			console.info(`After: ${this.test?.parent?.title}`);
-// 			clearDisk();
-// 		});
-//
-// 		type PQErrorKind = "ResultTooLargeError" | "InsightError";
-//
-// 		folderTest<unknown, InsightResult[], PQErrorKind>(
-// 			"Dynamic InsightFacade PerformQuery tests",
-// 			(input) => facade.performQuery(input),
-// 			"./test/resources/queries",
-// 			{
-// 				assertOnResult: (actual, expected) => {
-// 					expect(actual).to.have.deep.members(expected);
-// 				},
-// 				errorValidator: (error): error is PQErrorKind =>
-// 					error === "ResultTooLargeError" || error === "InsightError",
-// 				assertOnError: (actual, expected) => {
-// 					if (expected === "InsightError") {
-// 						expect(actual).to.be.an.instanceOf(InsightError);
-// 					} else if (expected === "ResultTooLargeError"){
-// 						expect(actual).to.be.an.instanceOf(ResultTooLargeError);
-// 					} else {
-// 						// this should be unreachable
-// 						expect.fail("UNEXPECTED ERROR");
-// 					}
-// 				},
-// 			}
-// 		);
-// 	});
-// });
+	describe("PerformQuery", () => {
+		before(function () {
+			console.info(`Before: ${this.test?.parent?.title}`);
+
+			facade = new InsightFacade();
+
+			sections = getContentFromArchives("pair.zip");
+			rooms = getContentFromArchives("campus.zip");
+			// Load the datasets specified in datasetsToQuery and add them to InsightFacade.
+			// Will *fail* if there is a problem reading ANY dataset.
+			const loadDatasetPromises = [
+				facade.addDataset("sections", sections, InsightDatasetKind.Sections),
+				facade.addDataset("rooms", rooms, InsightDatasetKind.Rooms),
+			];
+
+			return Promise.all(loadDatasetPromises);
+		});
+
+		after(function () {
+			console.info(`After: ${this.test?.parent?.title}`);
+			clearDisk();
+		});
+
+		type PQErrorKind = "ResultTooLargeError" | "InsightError";
+
+		folderTest<unknown, InsightResult[], PQErrorKind>(
+			"Dynamic InsightFacade PerformQuery tests",
+			(input) => facade.performQuery(input),
+			"./test/resources/queries",
+			{
+				assertOnResult: (actual, expected) => {
+					expect(actual).to.have.deep.members(expected);
+				},
+				errorValidator: (error): error is PQErrorKind =>
+					error === "ResultTooLargeError" || error === "InsightError",
+				assertOnError: (actual, expected) => {
+					if (expected === "InsightError") {
+						expect(actual).to.be.an.instanceOf(InsightError);
+					} else if (expected === "ResultTooLargeError"){
+						expect(actual).to.be.an.instanceOf(ResultTooLargeError);
+					} else {
+						// this should be unreachable
+						expect.fail("UNEXPECTED ERROR");
+					}
+				},
+			}
+		);
+	});
+});
