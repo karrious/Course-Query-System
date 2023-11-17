@@ -1,7 +1,7 @@
 import express, {Application, Request, Response} from "express";
 import * as http from "http";
 import cors from "cors";
-import {InsightDatasetKind} from "../../src/controller/IInsightFacade";
+import {InsightDatasetKind, InsightError} from "../../src/controller/IInsightFacade";
 import InsightFacade from "../../src/controller/InsightFacade";
 
 
@@ -90,29 +90,35 @@ export default class Server {
 		this.express.get("/echo/:msg", Server.echo);
 
 		// TODO: your other endpoints should go here
-		this.express.put("/dataset/:id/:kind", async (req: Request, res: Response) => {
-			try {
-				const id: string = req.params.id;
-				const kindString: string = req.params.kind;
-				let kind: InsightDatasetKind;
-				if (kindString in InsightDatasetKind) {
-					kind = kindString as unknown as InsightDatasetKind;
-				} else {
-					return res.status(400).send({error: "Invalid dataset kind"});
-				}
+		this.express.put("/dataset/:id/:kind", this.putHelper.bind(this));
+	}
 
-				const content: string = req.body;
-				const result = await this.facade.addDataset(id, content, kind);
-				res.status(200).json({result});
-			} catch (err) {
-				if (err instanceof Error) {
-					res.status(400).json({error: err.message});
-				} else {
-					// Handle the case where err is not an Error object
-					res.status(500).json({error: "An unknown error occurred"});
-				}
+	private async putHelper(req: Request, res: Response) {
+		try {
+			const id: string = req.params.id;
+			const content = req.body.toString("base64");
+			const kindString: string = req.params.kind;
+			const kind = this.getKindFromString(kindString);
+			const result = await this.facade.addDataset(id, content, kind);
+
+			res.status(200).json({result});
+		} catch (err) {
+			if (err instanceof InsightError) {
+				res.status(400).json({error: err.message});
+			} else {
+				// Handle the case where err is not an Error object
+				res.status(500).json({error: "An unknown error occurred"});
 			}
-		});
+		}
+	}
+
+	private getKindFromString(kindString: string): InsightDatasetKind {
+		if (kindString === "sections") {
+			return InsightDatasetKind.Sections;
+		} else if (kindString === "rooms") {
+			return InsightDatasetKind.Rooms;
+		}
+		throw new InsightError("Invalid dataset kind");
 	}
 
 	// The next two methods handle the echo service.

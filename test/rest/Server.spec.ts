@@ -24,15 +24,17 @@ describe("Facade D3", function () {
 
 	beforeEach(function () {
 		// might want to add some process logging here to keep track of what is going on
+		console.log("before each reached");
 	});
 
 	afterEach(function () {
 		// might want to add some process logging here to keep track of what is going on
+		console.log("after each reached");
 	});
 
 	// Sample on how to format PUT requests
 	it("PUT test for sections dataset", function () {
-		const ENDPOINT_URL = "/dataset/sections/sections";
+		const ENDPOINT_URL = "/dataset/ubc/sections";
 		const ZIP_FILE_DATA = "test/resources/archives/pair.zip";
 		try {
 			return request(SERVER_URL)
@@ -41,8 +43,8 @@ describe("Facade D3", function () {
 				.set("Content-Type", "application/x-zip-compressed")
 				.then(function (res: Response) {
 					// some logging here please!
-					console.log("PUT request successful");
 					expect(res.status).to.be.equal(200);
+					console.log("PUT request successful");
 				})
 				.catch(function (err) {
 					// some logging here please!
@@ -56,7 +58,7 @@ describe("Facade D3", function () {
 
 	it("PUT test for rooms dataset", function () {
 		const ENDPOINT_URL = "/dataset/rooms/rooms";
-		const ZIP_FILE_DATA = "test/resources/archives/pair.zip"; // sections file path
+		const ZIP_FILE_DATA = "test/resources/archives/pair.zip";
 		try {
 			return request(SERVER_URL)
 				.put(ENDPOINT_URL)
@@ -64,8 +66,8 @@ describe("Facade D3", function () {
 				.set("Content-Type", "application/x-zip-compressed")
 				.then(function (res: Response) {
 					// some logging here please!
-					console.log("PUT request successful");
 					expect(res.status).to.be.equal(200);
+					console.log("PUT request successful");
 				})
 				.catch(function (err) {
 					// some logging here please!
@@ -85,8 +87,8 @@ describe("Facade D3", function () {
 			.delete(ENDPOINT_URL)
 			.then(function (res: Response) {
 				// Logging success
-				console.log("DELETE request successful");
 				expect(res.status).to.be.equal(200);
+				console.log("DELETE request successful");
 			})
 			.catch(function (err) {
 				// Logging error
@@ -117,8 +119,8 @@ describe("Facade D3", function () {
 			.send(QUERY_DATA)
 			.then(function (res: Response) {
 				// Logging success
-				console.log("POST request successful");
 				expect(res.status).to.be.equal(200);
+				console.log("POST request successful");
 			})
 			.catch(function (err) {
 				// Logging error
@@ -165,8 +167,8 @@ describe("Facade D3", function () {
 			.get(ENDPOINT_URL)
 			.then(function (res: Response) {
 				// Logging success
-				console.log("GET request successful");
 				expect(res.status).to.be.equal(200);
+				console.log("GET request successful");
 			})
 			.catch(function (err) {
 				// Logging error
