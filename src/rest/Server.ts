@@ -1,16 +1,21 @@
 import express, {Application, Request, Response} from "express";
 import * as http from "http";
 import cors from "cors";
+import {InsightDatasetKind} from "../../src/controller/IInsightFacade";
+import InsightFacade from "../../src/controller/InsightFacade";
+
 
 export default class Server {
 	private readonly port: number;
 	private express: Application;
 	private server: http.Server | undefined;
+	private facade: InsightFacade;
 
 	constructor(port: number) {
 		console.info(`Server::<init>( ${port} )`);
 		this.port = port;
 		this.express = express();
+		this.facade = new InsightFacade();
 
 		this.registerMiddleware();
 		this.registerRoutes();
@@ -18,7 +23,7 @@ export default class Server {
 		// NOTE: you can serve static frontend files in from your express server
 		// by uncommenting the line below. This makes files in ./frontend/public
 		// accessible at http://localhost:<port>/
-		// this.express.use(express.static("./frontend/public"))
+		this.express.use(express.static("./frontend/public"));
 	}
 
 	/**
@@ -85,7 +90,29 @@ export default class Server {
 		this.express.get("/echo/:msg", Server.echo);
 
 		// TODO: your other endpoints should go here
+		this.express.put("/dataset/:id/:kind", async (req: Request, res: Response) => {
+			try {
+				const id: string = req.params.id;
+				const kindString: string = req.params.kind;
+				let kind: InsightDatasetKind;
+				if (kindString in InsightDatasetKind) {
+					kind = kindString as unknown as InsightDatasetKind;
+				} else {
+					return res.status(400).send({error: "Invalid dataset kind"});
+				}
 
+				const content: string = req.body;
+				const result = await this.facade.addDataset(id, content, kind);
+				res.status(200).json({result});
+			} catch (err) {
+				if (err instanceof Error) {
+					res.status(400).json({error: err.message});
+				} else {
+					// Handle the case where err is not an Error object
+					res.status(500).json({error: "An unknown error occurred"});
+				}
+			}
+		});
 	}
 
 	// The next two methods handle the echo service.
