@@ -1,7 +1,11 @@
 import express, {Application, Request, Response} from "express";
 import * as http from "http";
 import cors from "cors";
-import {InsightDatasetKind, InsightError} from "../../src/controller/IInsightFacade";
+import {
+	InsightDatasetKind,
+	InsightError,
+	NotFoundError
+} from "../../src/controller/IInsightFacade";
 import InsightFacade from "../../src/controller/InsightFacade";
 
 
@@ -90,13 +94,16 @@ export default class Server {
 		this.express.get("/echo/:msg", Server.echo);
 
 		// TODO: your other endpoints should go here
-		this.express.put("/dataset/:id/:kind", this.putHelper.bind(this));
+		this.express.put("/dataset/:id/:kind", this.addHelper.bind(this));
+		this.express.delete("/dataset/:id", this.removeHelper.bind(this));
+		this.express.post("/query", this.queryHelper.bind(this));
+		this.express.get("/datasets", this.listHelper.bind(this));
 	}
 
-	private async putHelper(req: Request, res: Response) {
+	private async addHelper(req: Request, res: Response) {
 		try {
 			const id: string = req.params.id;
-			const content = req.body.toString("base64");
+			const content = Buffer.from(req.body).toString("base64");
 			const kindString: string = req.params.kind;
 			const kind = this.getKindFromString(kindString);
 			const result = await this.facade.addDataset(id, content, kind);
@@ -119,6 +126,47 @@ export default class Server {
 			return InsightDatasetKind.Rooms;
 		}
 		throw new InsightError("Invalid dataset kind");
+	}
+
+	private async removeHelper(req: Request, res: Response) {
+		try {
+			const id: string = req.params.id;
+			await this.facade.removeDataset(id);
+			res.status(200).json({result: id});
+		} catch (err) {
+			if (err instanceof NotFoundError) {
+				res.status(404).json({error: err.message});
+			} else if (err instanceof InsightError) {
+				res.status(400).json({error: err.message});
+			} else {
+				// Handle other types of errors that may come from removeDataset
+				res.status(500).json({error: "An unknown error occurred"});
+			}
+		}
+	}
+
+	private async queryHelper(req: Request, res: Response) {
+		try {
+			const query = req.body;
+			const result = await this.facade.performQuery(query);
+			res.status(200).json({result});
+		} catch (err) {
+			if (err instanceof InsightError) {
+				res.status(400).json({error: err.message});
+			} else {
+				// Handle other types of errors that may come from performQuery
+				res.status(500).json({error: "An unknown error occurred"});
+			}
+		}
+	}
+
+	private async listHelper(req: Request, res: Response) {
+		try {
+			const result = await this.facade.listDatasets();
+			res.status(200).json({result});
+		} catch (err) {
+			res.status(500).json({error: "An unknown error occurred"});
+		}
 	}
 
 	// The next two methods handle the echo service.
