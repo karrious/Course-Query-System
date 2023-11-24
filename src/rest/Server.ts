@@ -103,7 +103,7 @@ export default class Server {
 	private async addHelper(req: Request, res: Response) {
 		try {
 			const id: string = req.params.id;
-			const content = Buffer.from(req.body).toString("base64");
+			const content = req.body.toString("base64");
 			const kindString: string = req.params.kind;
 			const kind = this.getKindFromString(kindString);
 			const result = await this.facade.addDataset(id, content, kind);
@@ -113,8 +113,7 @@ export default class Server {
 			if (err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				// Handle the case where err is not an Error object
-				res.status(500).json({error: "An unknown error occurred"});
+				res.status(400).json({error: "An unknown error occurred"});
 			}
 		}
 	}
@@ -139,8 +138,7 @@ export default class Server {
 			} else if (err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				// Handle other types of errors that may come from removeDataset
-				res.status(500).json({error: "An unknown error occurred"});
+				res.status(400).json({error: "An unknown error occurred"});
 			}
 		}
 	}
@@ -154,8 +152,7 @@ export default class Server {
 			if (err instanceof InsightError) {
 				res.status(400).json({error: err.message});
 			} else {
-				// Handle other types of errors that may come from performQuery
-				res.status(500).json({error: "An unknown error occurred"});
+				res.status(400).json({error: "An unknown error occurred"});
 			}
 		}
 	}
@@ -165,7 +162,7 @@ export default class Server {
 			const result = await this.facade.listDatasets();
 			res.status(200).json({result});
 		} catch (err) {
-			res.status(500).json({error: "An unknown error occurred"});
+			res.status(400).json({error: "An unknown error occurred"});
 		}
 	}
 
